@@ -1,0 +1,88 @@
+.wrap header {
+    width: 100%;
+    background-color: #FFFFFF;
+    height: 4.4rem;
+    box-sizing: border-box;
+    line-height: 4.4rem;
+    margin: 0rem 0rem 1rem 0rem;
+    border-top: 1px solid #E9EAEC;
+    border-bottom: 1px solid #E9EAEC;
+    font-size: 1.4rem;
+    color: #485166;
+    padding-left: 4.5%;
+}
+.wrap header a {
+    color: #485166;
+}
+.wrap .fail_prompt {
+    position: absolute;
+    top: 50%;
+    margin-top: -10rem;
+    width: 100%;
+}
+.wrap .fail_prompt1 {
+    position: absolute;
+    top: 50%;
+    margin-top: -15rem;
+    width: 100%;
+}
+.wrap .fail_prompt .fail_icon {
+    width: 100%;
+    height: 6rem;
+    line-height: 6rem;
+    margin-bottom: 2.2rem;
+    text-align: center;
+}
+.wrap .fail_prompt .fail_icon .icon-cuowu {
+    font-size: 6rem;
+    color: #FF6800;
+    opacity: 0.4;
+}
+.wrap .fail_prompt .fail_prompt_orange {
+    width: 100%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: #FF6800;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.wrap .fail_prompt .fail_prompt_gray {
+    width: 100%;
+    /*height: 2.5rem;*/
+    /*line-height: 2.5rem;*/
+    text-align: center;
+    margin-bottom: 1.4rem;
+}
+.wrap .fail_prompt .fail_prompt_gray .fail_prompt_content {
+    display: inline-block;
+    /*width: 69%;*/
+}
+.wrap .fail_prompt .fail_prompt_gray .fail_prompt_content p {
+    width: 100%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: #A3A6AF;
+    font-size: 1.6rem;
+    text-align: left;
+}
+.wrap .fail_prompt .fail_prompt_gray .fail_prompt_content .fail_prompt_content_center {
+    text-align: center;
+}
+.wrap .fail_prompt .fail_prompt_btn {
+    width: 100%;
+    height: 4.4rem;
+    line-height: 4.4rem;
+    text-align: center;
+}
+.wrap .fail_prompt .fail_prompt_btn .btn_check {
+    display: inline-block;
+    width: 53%;
+    height: 4.4rem;
+    line-height: 4.4rem;
+    text-align: center;
+    background: #0080CC;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    color: #FFFFFF;
+}

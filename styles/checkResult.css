@@ -1,0 +1,141 @@
+.wrap1 {
+    margin: auto;
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    background: #F8F8F9;
+    color: #1C2438;
+    position: relative;
+    /*font-size: 1.4rem; */
+}
+.wrap1 .assets_details {
+    background-color: #F8F8F9;
+    width: 100%;
+    height: 13rem;
+    line-height: 13rem;
+    color: #485166;
+    font-size: 4.4rem;
+    padding-left: 4%;
+}
+.wrap1.invoiceFull {
+    /*display: none;*/
+    width: 100%;
+    /*height: 20.2rem;*/
+}
+.wrap1 .assets_lists {
+    display: none;
+    width: 100%;
+    margin-top: 3.9rem;
+}
+.wrap1 .assets_track {
+    background-color: #F8F8F9;
+    width: 100%;
+    height: 10.4rem;
+    line-height: 10.4rem;
+    color: #485166;
+    font-size: 3.9rem;
+    padding-left: 4%;
+    border-bottom: 3px solid #E9EAEC;
+}
+.wrap1 .check_record, .wrap1 .monitoring_record{
+    background-color: #FFFFFF;
+    width: 100%;
+    border-bottom: 3px solid #E9EAEC;
+}
+.wrap1 .check_record .check_record_total, .wrap1 .monitoring_record .monitoring_record_total {
+    width: 100%;
+    height: 10.4rem;
+    /*text-align: right;*/
+    line-height: 10.4rem;
+    padding-left: 4%;
+    position: relative;
+}
+.wrap1 .check_record .check_result_classify ,.wrap1 .monitoring_record .monitoring_result_classify {
+    margin:0 4%;
+    width: 92%;
+    background: #FFFFFF;
+}
+.monitoring_record .monitoring_result_classify .check_result_right_list_num,.check_record .check_result_classify .check_result_right_list_num {
+    width: 100%;
+    height: 10.4rem;
+    /*text-align: right;*/
+    border-top: 3px solid #E9EAEC;
+    line-height: 10.4rem;
+    background: #FFFFFF;
+    position: relative;
+    font-size: 3.4rem;
+}
+.monitoring_record .monitoring_result_classify li:nth-child(1) .check_result_right_list_num,.check_record .check_result_classify li:nth-child(1) .check_result_right_list_num {
+    border-top: none;
+}
+.wrap1 .check_record .check_record_total .hy_record, .wrap1 .monitoring_record .monitoring_record_total .jk_record {
+    position: absolute;
+    top: 0rem;
+    left: 4%;
+    font-weight: 400;
+    height: 10.4rem;
+    line-height: 10.4rem;
+    font-size: 3.9rem;
+    color: #485166;
+}
+.wrap1 .check_record .check_record_total .num, .wrap1 .monitoring_record .monitoring_record_total .num {
+    font-size: 3.4rem;
+    /*float: right;*/
+    /*display: inline-block;*/
+    position: absolute;
+    right: 10%;
+    top: 0rem;
+}
+.wrap1 .check_record .check_record_total .num .hy_num, .wrap1 .monitoring_record .monitoring_record_total .num .jk_num {
+    color: red;
+}
+.wrap1 .check_record .check_record_total .num .icon-shangjiantou, .wrap1 .monitoring_record .monitoring_record_total .num .icon-shangjiantou {
+    font-size: 3.4rem;
+    margin-left: 3.4rem;
+}
+.wrap1 .check_record .check_record_total .num .icon-xiajiantou, .wrap1 .monitoring_record .monitoring_record_total .num .icon-xiajiantou {
+    font-size: 3.4rem;
+    margin-left: 3.4rem;
+}
+.wrap1 .check_record .check_result_classify, .wrap1 .monitoring_record .monitoring_result_classify {
+    background-color: #F8F8F9;
+    display: none;
+}
+.wrap1 .assets_details_btn {
+    width: 100%;
+    text-align: center;
+    height: 10.4rem;
+    margin: 4.2rem 0rem;
+}
+.wrap1 .assets_details_btn .check_btn {
+    display: inline-block;
+    height: 10.4rem;
+    line-height: 10.4rem;
+    font-size: 3.9rem;
+    color: #FFFFFF;
+    text-align: center;
+    width: 92%;
+    border-radius: 13px;
+    background-color: #0080CC;
+}
+.wrap1 header {
+    width: 100%;
+    background-color: #FFFFFF;
+    height: 10.4rem;
+    box-sizing: border-box;
+    line-height: 10.4rem;
+    /*margin: 0rem 0rem 2.6rem 0rem;*/
+    border-top: 1px solid #E9EAEC;
+    border-bottom: 1px solid #E9EAEC;
+    font-size: 3.4rem;
+    color: #485166;
+    padding-left: 4.5%;
+}
+.wrap1 header a {
+    color: #485166;
+}
+.wrap1 header a .icon-fanhuizuojiantou {
+    font-size: 3.4rem;
+    margin-right: 1.8rem;
+}

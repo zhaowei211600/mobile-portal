@@ -1,0 +1,35 @@
+.wrap-success{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    margin: -13rem 0;
+    display: none;
+}
+.wrap-img {
+    width: 6rem;
+    height: 7rem;
+    margin: 0 auto 1.3rem auto;
+}
+.wrap-img img{
+    width: 6rem;
+    height: 7rem;
+}
+.wrap-content-p{
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 2.2rem;
+    color: #495060;
+    letter-spacing: 0;
+}
+.login-href{
+    width: 54%;
+    height: 4.4rem;
+    margin: 2rem 23% 0;
+    border: 0;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+    font-size: 1.6rem;
+    color: #fff;
+    background: #0080CC;
+}

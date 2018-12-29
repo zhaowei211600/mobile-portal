@@ -1,0 +1,90 @@
+.wrap{
+    background: #FFFFFF;
+}
+.wrap-title{
+    margin: 3rem 0 0 4%;
+}
+.wrap-title .wrap-title-span{
+    font-size: 1.8rem;
+    color: #485166;
+    letter-spacing: 0;
+    font-weight: bold;
+}
+.warp-main{
+    margin: 3rem 0 0;
+}
+.warp-main .warp-main-span{
+    margin: 3rem 0 0 4%;
+    font-size: 1.6rem;
+    color: #485166;
+    letter-spacing: 0;
+}
+.warp-main .warp-main-input{
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    color: #485166;
+    letter-spacing: 0;
+    border: 0;
+}
+/*修改提示文字的颜色*/
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color: #BBBBBB;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #BBBBBB;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #BBBBBB;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #BBBBBB;
+}
+.warp-main-phone{
+    margin-left: 8%;
+}
+.warp-main-password{
+    margin-left: 12.5%;
+}
+
+
+/* hr样式 */
+.warp-main .warp-main-hr {
+    width: 92%;
+    margin: 1rem auto;
+    border-top: 1px solid #E9EAEC;
+    font-size: 0;
+    line-height: 0;
+}
+/* 登录按钮 */
+.login-btn {
+    margin: 0 4%;
+    width: 92%;
+    height: 4.4rem;
+    background: #0080CC;
+    border: 0;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+    font-size: 1.6rem;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+/* 立即注册 */
+.login_register_btn {
+    margin: 1rem 4%;
+    font-size: 1.4rem;
+    color: #0080CC;
+    letter-spacing: 0;
+}
+/* 找回密码 */
+.login_forgot_btn {
+    margin: 1rem 4%;
+    font-size: 1.4rem;
+    color: #0080CC;
+    letter-spacing: 0;
+}
+.fr {
+    float: right;
+}
+.fl {
+    float: left;
+}

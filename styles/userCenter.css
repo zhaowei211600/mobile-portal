@@ -1,0 +1,346 @@
+.wrap-top-dy {
+    width: 100%;
+    height: 1.5rem;
+    background: #0080CC;
+    display: none;
+}
+
+.wrap-main {
+    margin-bottom: 12rem;
+}
+
+.wrap-main-top {
+    height: 13rem;
+    width: 100%;
+    background: #0080CC;
+}
+
+.wrap-main-middle {
+    position: relative;
+    top: -12rem;
+}
+
+.wrap-main-middle-round {
+    width: 10rem;
+    height: 10rem;
+    position: relative;
+    left: 50%;
+    margin-left: -5rem;
+    display: inline-block;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #0080CC;
+    border-radius: 7.5rem;
+}
+
+/* 头像 */
+.head-portrait {
+    width: 100%;
+}
+
+.wrap-main-middle-round p {
+    font-size: 1.4rem;
+    height: 2rem;
+    line-height: 2rem;
+    color: #2EAAFF;
+    letter-spacing: 0;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.wrap-main-middle-header {
+    width: 88%;
+    height: 13rem;
+    margin: -5rem 6%;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 9px;
+    padding-top: 5rem;
+}
+
+.wrap-main-middle-header p {
+    font-size: 1.2rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    color: #495060;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.userCenter-authentication, .wrap-main-middle-header .red-prompt {
+    font-size: 1.2rem;
+    color: #F44336;
+    letter-spacing: 0;
+}
+
+.wrap-main-bottom {
+    width: 100%;
+    margin-top: -10rem;
+    background: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.01);
+    border-top: 1px solid #E9EAEC;
+    border-bottom: 1px solid #E9EAEC;
+}
+
+.wrap-main-bottom-content {
+    width: 92%;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    padding: 0 4%;
+    font-size: 1.4rem;
+}
+
+.wrap-bottom-text {
+    margin-left: 1rem;
+    line-height: 4rem;
+}
+
+/* hr样式 */
+.warp-main-hr {
+    width: 88%;
+    margin-left: 5rem;
+    border-top: 1px solid #E9EAEC;
+    font-size: 0;
+    line-height: 0;
+}
+
+.icon-renzhengxinxi, .icon-xiaoxiguanli, .icon-mimaxiugai, .icon-bangzhu, .icon-yaoqingma-{
+    color: #0080CC;
+    font-size: 2rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+}
+
+.icon-youjiantou {
+    float: right;
+    color: #BBBEC4;
+}
+
+.wrap-btn {
+    position: absolute;
+    bottom: 7rem;
+    width: 92%;
+    margin: 0 4%;
+}
+
+.wrap-btn-quit {
+    width: 100%;
+    height: 4.4rem;
+    line-height: 4.4rem;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+    border: 0;
+    text-align: center;
+    font-size: 1.6rem;
+    color: #0080CC;
+    letter-spacing: 0;
+}
+
+.layui-anim {
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.layui-anim.layui-icon {
+    display: inline-block
+}
+
+.layui-anim-loop {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite
+}
+
+@-webkit-keyframes layui-rotate {
+    from {
+        -webkit-transform: rotate(0)
+    }
+    to {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@keyframes layui-rotate {
+    from {
+        transform: rotate(0)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.layui-anim-rotate {
+    -webkit-animation-name: layui-rotate;
+    animation-name: layui-rotate;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear
+}
+
+@-webkit-keyframes layui-up {
+    from {
+        -webkit-transform: translate3d(0, 100%, 0);
+        opacity: .3
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+@keyframes layui-up {
+    from {
+        transform: translate3d(0, 100%, 0);
+        opacity: .3
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+.layui-anim-up {
+    -webkit-animation-name: layui-up;
+    animation-name: layui-up
+}
+
+@-webkit-keyframes layui-upbit {
+    from {
+        -webkit-transform: translate3d(0, 30px, 0);
+        opacity: .3
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+@keyframes layui-upbit {
+    from {
+        transform: translate3d(0, 30px, 0);
+        opacity: .3
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+.layui-anim-upbit {
+    -webkit-animation-name: layui-upbit;
+    animation-name: layui-upbit
+}
+
+@-webkit-keyframes layui-scale {
+    0% {
+        opacity: .3;
+        -webkit-transform: scale(.5)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes layui-scale {
+    0% {
+        opacity: .3;
+        -ms-transform: scale(.5);
+        transform: scale(.5)
+    }
+    100% {
+        opacity: 1;
+        -ms-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+.layui-anim-scale {
+    -webkit-animation-name: layui-scale;
+    animation-name: layui-scale
+}
+
+@-webkit-keyframes layui-scale-spring {
+    0% {
+        opacity: .5;
+        -webkit-transform: scale(.5)
+    }
+    80% {
+        opacity: .8;
+        -webkit-transform: scale(1.1)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes layui-scale-spring {
+    0% {
+        opacity: .5;
+        transform: scale(.5)
+    }
+    80% {
+        opacity: .8;
+        transform: scale(1.1)
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
+.layui-anim-scaleSpring {
+    -webkit-animation-name: layui-scale-spring;
+    animation-name: layui-scale-spring
+}
+
+@-webkit-keyframes layui-fadein {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes layui-fadein {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+.layui-anim-fadein {
+    -webkit-animation-name: layui-fadein;
+    animation-name: layui-fadein
+}
+
+@-webkit-keyframes layui-fadeout {
+    0% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+@keyframes layui-fadeout {
+    0% {
+        opacity: 1
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+.layui-anim-fadeout {
+    -webkit-animation-name: layui-fadeout;
+    animation-name: layui-fadeout
+}

@@ -1,0 +1,187 @@
+<div class="clearfix">
+	<!--发票表格     start--->
+	<div class="invoice_wrap fl">
+
+		<!--空白发票在此标签，加类名 invoice_gray-->
+		<div>
+			<!--公共样式部分 发票类型 发票状态 灰层-->
+			<div class="invoice_base">
+				<p class="invoice_type"><span id="invoiceType">卷</span></p>
+				<span class="invoice_state" id="invoiceState"></span>
+				<!--异常：abnormal，失控：outcontrol，红冲：red，作废：void-->
+				<div class="mask"></div>
+				<i class="iconfont icon-yinzhang check_result_icon"></i>
+			</div>
+			<h1 class="invoice_tit"><span><i id="invoiceTit">增值税普通发票（卷票）</i></span></h1>
+			<ul class="invoice_top_info clearfix">
+				<li>发票代码：<span><i class="content_td_blue" id="invoiceCode">1100141140</i></span></li>
+				<li>发票号码：<span><i class="content_td_blue" id="invoiceNumber">03453421</i></span></li>
+			</ul>
+			<ul class="invoice_top_info_right invoice_top_info_right_roll clearfix">
+				<li>校验码：<span><i class="content_td_blue" id="checkCode">84141613962368150683</i></span></li>
+				<li>机器编号：<span><i class="content_td_blue" id="machineCode">661513553240</i></span></li>
+				<li>机打号码：<span class="content_td_blue" id="jdhm_invoiceNumber"></span>
+					开票日期：<span><i class="content_td_blue" id="billingDate">2017年02月21日</i></span></li>
+			</ul>
+			<table class="fppy_table" style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+				<tr>
+					<td width="20" class="align_center" rowspan="2">
+						<p>销</p>
+						<p>售</p>
+						<p>方</p>
+					</td>
+					<td width="120" class="align_left borderNo">销售方名称：
+					</td>
+					<td class="align_left borderNo bgcolorWhite"><span class="content_td_blue" id="salesName">北京京东世纪贸易有限公司</span>
+					</td>
+					<td width="20" class="align_center" rowspan="2">
+						<p>购</p>
+						<p>买</p>
+						<p>方</p>
+					</td>
+					<td width="120" class="align_left borderNo">购买方名称：
+					</td>
+					<td class="align_left borderNo bgcolorWhite"><span class="content_td_blue" id="purchaserName">北京京东世纪贸易有限公司</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="align_left borderNo">纳税人识别号：</td>
+					<td class="align_left borderNo" nowrap=""><span class="content_td_blue" id="salesTaxNo">110192660501513</span>
+					</td>
+					<td class="align_left borderNo">纳税人识别号：</td>
+					<td class="align_left borderNo" nowrap=""><span class="content_td_blue" id="purchaserTaxNo">110192660501513</span>
+					</td>
+				</tr>
+				<!--表头-->
+				<tr>
+					<td colspan="6">
+						<table class="fppy_table_box" style="width: 100%;" cellspacing="0" cellpadding="0">
+							<tbody>
+							<tr height="30px">
+								<td width="40%" class="align_center borderRight">项目</td>
+								<td width="20%" class="align_center borderRight">单价</td>
+								<td width="20%" class="align_center borderRight">数量</td>
+								<td width="20%" class="align_center ">金额</td>
+							</tr>
+							<tr height="20px">
+								<td width="40%" class="align_center borderRight"></td>
+								<td width="20%" class="align_center borderRight"></td>
+								<td width="20%" class="align_center borderRight"></td>
+								<td width="20%" class="align_center"></td>
+							</tr>
+							<!---->
+							<tr style="display: none" id="showGoodsListRow">
+								<td class="align_left borderRight" style="position: relative;"><span
+										class="content_td_blue">(详见销货清单)</span>
+									<a href="javascript:;" class="list_detail_btn" id="goodsList">详见货物清单</a>
+								</td>
+								<td class="align_right borderRight"><span class="content_td_blue"></span></td>
+								<td class="align_right borderRight"><span class="content_td_blue"></span></td>
+								<td class="align_right"><span class="content_td_blue"></span></td>
+							</tr>
+							<tr class="invoice_shop_list">
+								<td class="align_center borderRight"><span
+										class="content_td_blue commodityName"></span></td>
+								<td class="align_center borderRight"><span class="content_td_blue unitPrice"></span></td>
+								<td class="align_center borderRight"><span class="content_td_blue quantity"></span>
+								</td>
+								<td class="align_center"><span class="content_td_blue amount"></span>
+								</td>
+							</tr>
+
+							<tr height="40px">
+								<td width="40%" class="align_center borderRight"></td>
+								<td width="20%" class="align_center borderRight"></td>
+								<td width="20%" class="align_center borderRight"></td>
+								<td width="20%" class="align_center"></td>
+							</tr>
+
+							<tr>
+								<td class=" borderRight borderTop invoiceRoll_btm" colspan="4">
+									<span>价税合计（小写）</span>
+									<span class="content_td_blue" id="amountTax"></span>
+									<span>价税合计（大写）</span>
+									<span class="content_td_blue" id="amountTaxCn">大写</span>
+									<span>收款员</span>
+									<span class="content_td_blue" id="payee">sdfg</span>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+				<!--表头结束-->
+				</tbody>
+			</table>
+
+		</div>
+
+	</div>
+	<!--发票表格     end--->
+</div>
+
+<!--发票清单详情弹窗-->
+<div class="tc_invoice_box" id="saleListBox" onclick="listClose()" style="display: none;">
+	<div class="list_mask"></div>
+	<div class="tc_main">
+		<a href="javascript:;" class="tc_close" id="closeSaleList">关闭</a>
+		<!--货物清单------------------>
+		<div class="hwqd_wrap">
+			<h1>销 售 货 物 或 提 供 应 税 劳 务 清 单</h1>
+			<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+				<tr height="30">
+					<td class="align_left" colspan="3">购买方名称：<span class="content_td_blue" id="saleListPurchaserName"></span></td>
+				</tr>
+				<tr height="30">
+					<td class="align_left" colspan="3">销售方名称：<span class="content_td_blue" id="saleListSalesName"></span></td>
+				</tr>
+				<tr height="30">
+					<td class="align_left"><span id="fpmx_fpdminfo">所属增值税发票代码：</span><span class="content_td_blue" id="saleListInvoiceCode"></span></td>
+					<td class="align_left">号码：<span class="content_td_blue" id="saleListInvoiceNumber"></span></td>
+					<!--<td class="align_right">共1页 第1页</td>-->
+					<td> &nbsp;</td>
+				</tr>
+				</tbody>
+			</table>
+			<table class="fppy_table" style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+				<tr id="tab_head_mx">
+					<td width="60"> 序号</td>
+					<td width="240">项目</td>
+					<td width="100">单价</td>
+					<td width="100">数量</td>
+					<td width="100">金额</td>
+				</tr>
+
+				<tr class="saleListRow">
+					<td class="borderBottomTopNo content_td_blue rowNo"></td>
+					<td class="borderBottomTopNo align_left content_td_blue commodityName"></td>
+					<td class="borderBottomTopNo align_right content_td_blue unitPrice"></td>
+					<td class="borderBottomTopNo align_right content_td_blue quantity"></td>
+					<td class="borderBottomTopNo align_right content_td_blue amount"></td>
+				</tr>
+
+				<tr>
+					<td class="borderTop">备注</td>
+					<td class="borderTop align_left content_td_blue" colspan="8"></td>
+				</tr>
+				</tbody>
+			</table>
+			<br>
+			<table style="width: 100%;" border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+				<tr height="30">
+					<td class="align_left">销售方（章）：</td>
+					<td class="align_right">填开日期：<span class="content_td_blue" id="saleListBillingDate"></span></td>
+					<td>&nbsp;</td>
+				</tr>
+				</tbody>
+			</table>
+			<p>注：本清单一式两联；第一联：销方保存；第二联：销售方送交购买方 </p>
+			<br />
+		</div>
+		<!--货物清单------------------>
+	</div>
+</div>

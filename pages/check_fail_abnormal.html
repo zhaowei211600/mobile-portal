@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>核验失败</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!--<meta name="format-detection" content="telephone=no" />-->
+    <link rel="stylesheet" href="/wechat/src/styles/font/iconfont.css" />
+    <link rel="stylesheet" href="/wechat/src/styles/common/common.css" />
+    <link rel="stylesheet" href="/wechat/src/styles/checkResult-fail.css" />
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <span class="header_back" onclick="javascript:history.go(-1)"><a href="javascript:history.go(-1)"><i class="iconfont icon-fanhuizuojiantou"></i>返回</a></span>
+        </header>
+        <div class="fail_prompt">
+            <div class="fail_icon"><i class="iconfont icon-cuowu"></i></div>
+            <div class="fail_prompt_orange">抱歉，出现异常了</div>
+            <div class="fail_prompt_gray">
+                <div class="fail_prompt_content">
+                    <p class="fail_prompt_content_center">可以继续尝试核验</p>
+                </div>
+            </div>
+            <div class="fail_prompt_btn">
+                <div class="btn_check" id="btn_check">继续核验</div>
+            </div>
+        </div>
+    </div>
+    <script src="/wechat/src/scripts/lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/wechat/src/scripts/common/jquery.cookie.js"></script>
+    <script src="/wechat/src/scripts/check_fail_notFind.js"></script>
+</body>
+</html>

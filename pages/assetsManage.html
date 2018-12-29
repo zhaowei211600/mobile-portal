@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="/wechat/src/styles/common/common.css" />
+    <link rel="stylesheet" href="/wechat/src/styles/assetsManage.css" />
+    <script type="text/javascript" src="/wechat/src/scripts/lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/wechat/src/scripts/common/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/wechat/src/scripts/common/common.js"></script>
+    <title>资产管理</title>
+</head>
+<body>
+    <div class="content-wrap asset-manage">
+        <div class="main_top_org">身份还未认证，认证后可开始资产登记管理 <a class="goApply">去认证</a></div>
+
+        <div class="asset info">
+            <h3 class="info-title">资产情况</h3>
+            <div class="info-body">
+                <div class="left ticket">
+                    <div class="tips ticketCount">0</div>
+                    <div>票据总量</div>
+                </div>
+                <div class="right monitor">
+                    <div class="tips monitorCount">0</div>
+                    <div>监控总量</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="risk info">
+            <h3 class="info-title">风险提醒</h3>
+            <div class="info-body">
+                <div class="left statusChange">
+                    <div class="tips statusChgeCount">0</div>
+                    <div>资产状态改变</div>
+                </div>
+                <div class="right repeatUse">
+                    <div class="tips repeatUseCount">0</div>
+                    <div>资产重复使用</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="choose-opreate">
+            <a href="/wechat/src/pages/myAssets.html" class="my-asset">
+                <span class="t1">我的资产</span>
+                <span class="t2">核验过的票据资产</span>
+            </a>
+            <a href="/wechat/src/pages/monitor-error.html" class="monitor-asset">
+                <span class="t1">监控资产</span>
+                <span class="t2">监控资产状态变化</span>
+            </a>
+            <a href="/wechat/src/pages/riskCoordination.html" class="risk-talk">
+                <span class="t1">风险协同</span>
+                <span class="t2">同行的协同申请</span>
+            </a>
+            <a href="/wechat/src/pages/ticketSend.html" class="ticket-send">
+                <span class="t1">票据推送</span>
+                <span class="t2">将票据资产推送到内部管理</span>
+            </a>
+        </div>
+
+        <div class="menu">
+            <div class="menu1 bg">
+                <div class="assets_manage" id="assets_manage">资产管理</div>
+            </div>
+            <div class="menu2">
+                <div class="assets_check" id="assets_check">资产核验</div>
+            </div>
+            <div class="menu3">
+                <div class="user_center" id="user_center">用户中心</div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/wechat/src/scripts/assetsManage.js"></script>
+</body>
+</html>

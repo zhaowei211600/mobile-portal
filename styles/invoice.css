@@ -1,0 +1,588 @@
+@charset "UTF-8";
+/* CSS Document */
+/* reset--------------------------------------------------------------------*/
+body, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, th, td, p, blockquote, pre, form, fieldset, legend, input, button, textarea, hr {
+	margin: 0;
+	padding: 0;
+}
+
+fieldset, img {
+	border: 0;
+}
+
+q:before, q:after {
+	content: '';
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
+address, cite, dfn, em, var {
+	font-style: normal;
+}
+
+legend {
+	color: #000;
+}
+
+hr {
+	border: none;
+	height: 1px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+}
+
+ol, ul {
+	list-style: none outside none;
+}
+
+li {
+	list-style: none;
+}
+
+input, select, textarea, button {
+	font-size: 100%;
+	line-height: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+table, thead, tbody, tfoot, tr, th, td, caption, col, colgroup {
+	text-align: inherit;
+	line-height: inherit;
+	font-size: 100%;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+thead {
+	display: table-header-group;
+}
+
+tbody {
+	display: table-row-group;
+}
+
+tfoot {
+	display: table-footer-group;
+}
+
+tr {
+	display: table-row;
+}
+
+th, td {
+	display: table-cell;
+}
+
+caption {
+	display: table-caption;
+}
+
+col {
+	display: table-column;
+}
+
+colgroup {
+	display: table-column-group;
+}
+
+/* common--------------------------------------------------------------------*/
+/* clear--------------------------------------------------------------------*/
+.clearfix:after, .main:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+/*IE7*/
+* html .clearfix {
+	zoom: 1;
+	display: inline-block;
+}
+
+/* Hides from IE-mac \*/
+.clearfix {
+	display: block;
+}
+
+/* End hide from IE-mac */
+.zoom {
+	zoom: 1;
+	overow: hidden;
+}
+
+.clear {
+	clear: both;
+}
+
+.invoice_wrap p, .invoice_wrap b {
+	line-height: 20px;
+	clear: both;
+	overflow: hidden;
+}
+
+.invoice_wrap h1, .invoice_wrap h2 {
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 5px;
+	clear: both;
+	overflow: hidden;
+}
+
+/*颜色*/
+/*边框颜色*/
+/*文字颜色*/
+.content_td_blue {
+	color: #000;
+}
+
+/* 通用的按钮样式---------------------------------------------------------*/
+.white_button {
+	border: 1px solid #dddee1;
+	background: #fff;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+	padding: 0 5px;
+	border-radius: 3px;
+}
+
+.green_button {
+	border: 1px solid #ff805e;
+	background: #ff805e;
+	color: #fff;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+	padding: 0 5px;
+	border-radius: 3px;
+}
+.ft12{
+	font-size: 12px;}
+/* resule table-----------------------------------------------------------*/
+.fppy_table, .fppy_table td {
+	border: 1px solid #dddee1;
+	/*border-collapse: collapse;*/
+	line-height: 25px;
+	margin: 0 auto;
+}
+
+.fppy_table td.borderBottomNo {
+	border: 0px;
+}
+
+.fppy_table td.borderRightNo {
+	border: 0px;
+}
+
+.fppy_table td.borderNo {
+	border: 0px;
+}
+
+.fppy_table td.borderRight {
+	border-left: 0px;
+	border-right: 1px solid #dddee1;
+}
+
+.fppy_table td.borderLeft {
+	border-right: 0px;
+	border-left: 1px solid #dddee1;
+}
+
+.fppy_table td.borderBottomTopNo {
+	border-bottom: 0px;
+	border-top: 0px;
+	text-align: center;
+}
+
+.fppy_table td.borderHaveTop {
+	border-bottom: 0px;
+	border-top: 1px solid #dddee1;
+}
+
+table.fppy_table_box {
+	border: 0px;
+	border-collapse: collapse;
+}
+
+table.fppy_table_box td {
+	border: 0px solid #ccc;
+	border-collapse: collapse;
+}
+
+.fppy_table_box td.borderTop {
+	border-top: 1px solid #dddee1;
+}
+
+.fppy_table_box td.borderRight {
+	border-right: 1px solid #dddee1;
+}
+
+.align_center {
+	text-align: center !important;
+}
+
+.align_left {
+	text-align: left !important;
+	padding: 0 0 0 2px;
+}
+
+.align_right {
+	text-align: right !important;
+	padding: 0 3px 0 3px;
+}
+
+/*全局*/
+/*普票*/
+.invoice_wrap {
+	padding: 30px 0;
+	color: #80848f;
+	position: relative;
+	color: #495060;
+}
+
+.invoice_tit {
+	color: #80848f;
+}
+
+/*机动车发票*/
+.inv_car_wrap {
+	font-size: 14px;
+	color: #495060;
+}
+
+.inv_car_tit {
+	padding: 5px 0;
+	text-align: center;
+	color: #80848f;
+}
+
+/*卷票*/
+.inv_roll_wrap {
+	font-size: 14px;
+	color: #495060;
+}
+
+.inv_roll_tit {
+	padding: 5px 0;
+	text-align: center;
+	color: #80848f;
+}
+
+.inv_roll_cont {
+	padding: 20px;
+	border: 1px dashed #cccccc;
+	line-height: 30px;
+	background: #f7f7f7;
+}
+
+/*清单*/
+.list_wrap {
+	font-size: 14px;
+	color: #495060;
+}
+
+.list_tit {
+	padding: 5px 0 15px;
+	text-align: center;
+	color: #80848f;
+}
+
+/*发票公共部分*/
+/*标题*/
+.invoice_tit {
+	margin: 0 auto 10px;
+	padding: 5px 0px 2px;
+	text-align: center;
+}
+
+.invoice_tit span {
+	display: inline-block;
+	border-bottom: 1px solid #dddee1;
+	padding: 0 40px 10px;
+	height: 20px;
+	position: relative;
+}
+
+.invoice_tit span:after {
+	content: '';
+	width: 100%;
+	height: 1px;
+	position: absolute;
+	left: 0;
+	bottom: 2px;
+	border-bottom: 1px solid #dddee1;
+}
+
+.invoice_tit i {
+	font-style: normal;
+}
+
+.invoice_type {
+	position: absolute;
+	left: 20px;
+	top: 12px;
+	box-sizing: border-box;
+	padding: 2px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	/*line-height: 48px;*/
+	color: #e6d8bd;
+	text-align: center;
+	border: 4px solid #e6d8bd;
+	text-align: center;
+}
+
+.invoice_type span {
+	display: inline-block;
+	width: 48px;
+	height: 48px;
+	line-height: 48px;
+	box-sizing: border-box;
+	border: 2px solid #e6d8bd;
+	border-radius: 50%;
+	font-size: 30px;
+}
+
+.invoice_state {
+	width: 227px;
+	height: 194px;
+	position: absolute;
+	left: 50%;
+	top: 2px;
+	margin-left: -113px;
+	z-index: 1;
+}
+
+/*异常*/
+.invoice_state.abnormal {
+	background: url(/assets-manager/styles/images/state_abnormal.png);
+}
+
+/*失控*/
+.invoice_state.outcontrol {
+	background: url(/assets-manager/styles/images/state_outcontrol.png);
+}
+
+/*红冲*/
+.invoice_state.red {
+	background: url(/assets-manager/styles/images/state_red.png);
+}
+
+/*作废*/
+.invoice_state.void {
+	background: url(/assets-manager/styles/images/state_void.png);
+}
+
+/*灰层*/
+.mask {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(232, 232, 232, 0.4);
+	display: none;
+	z-index: 2;
+}
+
+.invoice_wrap {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 30px 20px 20px;
+	border: 1px solid #dddee1;
+}
+
+.invoice_gray .mask {
+	display: block;
+}
+
+.invoice_gray .invoice_state, .invoice_gray .invoice_type, .invoice_gray .content_td_blue {
+	display: none;
+}
+
+.invoice_gray .invoice_tit i {
+	display: none;
+}
+
+/*表格头部信息 发票代码 发票号码*/
+.invoice_top_info {
+	padding-bottom: 6px;
+}
+
+.invoice_top_info i {
+	font-style: normal;
+}
+
+.invoice_top_info li {
+	float: left;
+}
+
+.invoice_top_info li span {
+	display: inline-block;
+	width: 96px;
+}
+
+.invoice_top_info_right {
+	position: absolute;
+	text-align: right;
+	right: 20px;
+	top: 50px;
+	line-height: 2;
+}
+
+.invoice_top_info_right span {
+	display: inline-block;
+}
+
+.invoice_top_info_right i {
+	font-style: normal;
+}
+
+.invoice_top_info_right li:nth-of-type(1) span {
+	/*width: 170px;*/
+}
+
+.invoice_top_info_right li:nth-of-type(3) span {
+	/*width: 110px;*/
+}
+
+.invoice_shop_list {
+	height: 2em;
+}
+
+/*电票代码 号码*/
+.dianpiao_right_top {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+/**/
+/**/
+
+.yulan_wrap_left table,.hwqd_wrap table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* resule table--------------------------------------------------------------------*/
+.fppy_table, .fppy_table td {
+	border: 1px solid #dddee1;
+	/*border-collapse: collapse;*/
+	line-height: 25px;
+	margin: 0 auto;
+}
+
+.fppy_table td.borderBottomNo {
+	border: 0px;
+}
+
+.fppy_table td.borderRightNo {
+	border: 0px;
+}
+
+.fppy_table td.borderNo {
+	border: 0px;
+}
+
+.fppy_table td.borderRight {
+	border-left: 0px;
+	border-right: 1px solid #dddee1;
+}
+
+.fppy_table td.borderLeft {
+	border-right: 0px;
+	border-left: 1px solid #dddee1;
+}
+
+.fppy_table td.borderBottomTopNo {
+	border-bottom: 0px;
+	border-top: 0px;
+	text-align: center;
+}
+
+.fppy_table td.borderHaveTop {
+	border-bottom: 0px;
+	border-top: 1px solid #dddee1;
+}
+.list_detail_btn{
+	display: inline-block;
+	color: #fff;
+	border-radius: 4px;
+	padding: 5px 10px;
+	background: #0080cc;
+	position: absolute;
+	top: 30px;
+	left: 10px;
+}
+.hwqd_wrap h1{
+	text-align: center; font-size: 16px;}
+.hwqd_wrap{
+	padding-top: 20px;}
+/*清单弹窗*/
+.tc_invoice_box{
+}
+.list_mask{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	z-index: 10;
+}
+.tc_main{
+	position: absolute; z-index: 11;
+	background: #fff;
+	position: absolute;
+	width: 1000px;
+	left:10%;
+	/*margin-left: -500px;*/
+	/*top: 20%;*/
+	top: 0;
+	z-index: 10;
+	box-sizing: border-box;
+	padding: 60px 30px 30px;
+	/*bottom: 0;*/
+}
+#closeSaleList{
+	float: right;
+	color: #0080cc;
+	font-size: 16px;
+	margin-top: -40px;
+}
+.hwqd_wrap{
+	padding: 24px;
+	border: 1px solid #DDDEE1;
+	overflow-y: auto;
+	height: 500px;
+}
+/*查验信息不符*/
+.check_result_icon{
+	position: absolute;
+	width: 160px;
+	height: 160px;
+	left: 50%;
+	margin-left: -80px;
+	top: 50%;
+	margin-top: -80px;
+	font-size: 160px;
+	color: #FF2222;
+	display: none;
+	opacity: 0.4;
+}
+.icon-gaizhangyushijiyizhi {
+	color: #0080cc;
+}

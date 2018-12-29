@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>核验成功</title>
+    <meta name="viewport" />
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />-->
+    <link rel="stylesheet" href="/wechat/src/styles/font/iconfont.css" />
+    <link rel="stylesheet" href="/wechat/src/styles/common/common.css" />
+    <link rel="stylesheet" href="/wechat/src/styles/common/invoice.css">
+    <link rel="stylesheet" href="/wechat/src/styles/checkResult.css" />
+    <!--<script type="text/javascript" src="../js/common/jquery-3.2.1.min.js"></script>-->
+    <!--<script type="text/javascript" src="../js/common/common.js"></script>-->
+    <!--<script type="text/javascript" src="../js/index.js"></script>-->
+</head>
+
+<body>
+<div class="wrap1">
+    <header>
+        <span class="header_back"><a href="javascript:history.go(-1)"><i class="iconfont icon-fanhuizuojiantou"></i>返回</a></span>
+    </header>
+    <!--资产详情-->
+    <h4 class="assets_details">资产详情</h4>
+    <!--票面信息-->
+    <div id="invoiceFull" class="invoiceFull"></div>
+    <div class="assets_lists"></div>
+    <h4 class="assets_track" >资产轨迹</h4>
+    <div class="check_record" id="check_record">
+        <div class="check_record_total" id="check_record_total"><h4 class="hy_record">核验记录</h4><div class="num">(<i class="hy_num" id="hy-record">0</i>)<i class="iconfont icon-xiajiantou" id="icon-xiajiantou1"></i></div></div>
+        <ul class="check_result_classify" id="hy_list"></ul>
+    </div>
+    <div class="monitoring_record" id="monitoring_record">
+        <div class="monitoring_record_total" id="monitoring_record_total"><h4 class="jk_record">监控记录</h4><div class="num">(<i class="jk_num" id="jk-record">0</i>)<i class="iconfont icon-xiajiantou" id="icon-xiajiantou2"></i></div></div>
+        <ul class="monitoring_result_classify" id="jk_list"></ul>
+    </div>
+    <div class="assets_details_btn">
+        <div class="check_btn" id="check_btn">继续核验</div>
+    </div>
+</div>
+<script src="/wechat/src/scripts/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/wechat/src/scripts/common/jquery.cookie.js"></script>
+<script src="/wechat/src/scripts/common/common.js"></script>
+<script type="text/javascript" src="/wechat/src/scripts/common/invoiceDetail.js"></script>
+<script src="/wechat/src/scripts/check_success.js"></script>
+</body>
+
+</html>

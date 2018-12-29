@@ -1,0 +1,179 @@
+.wrap {
+    background: #FFFFFF;
+}
+
+/*提示样式*/
+.transfer-prompt {
+
+}
+
+.transfer-content {
+    padding: 0 10%;
+}
+
+.transfer-img {
+    width: 20rem;
+    height: 20rem;
+    margin: 3.5rem auto 3.5rem auto;
+}
+
+.transfer-img img {
+    width: 20rem;
+    height: 20rem;
+}
+
+.transfer-content-p {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    color: #485166;
+    letter-spacing: 0;
+}
+
+.mt-20 {
+    margin-top: 2rem;
+}
+
+.transfer-btn {
+    width: 54%;
+    height: 4.4rem;
+    margin: 7rem 23% 0;
+    border: 0;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+    font-size: 1.6rem;
+    color: #fff;
+    background: #0080CC;
+}
+
+/*登录样式*/
+.transfer-login {
+    display: none;
+}
+
+.wrap-title {
+    margin: 3rem 0 0 4%;
+}
+
+.wrap-title .wrap-title-span {
+    font-size: 1.8rem;
+    color: #485166;
+    letter-spacing: 0;
+    font-weight: bold;
+}
+
+.warp-main {
+    margin: 3rem 0 0;
+}
+
+.warp-main .warp-main-span {
+    margin: 3rem 0 0 4%;
+    font-size: 1.6rem;
+    color: #485166;
+    letter-spacing: 0;
+}
+
+.warp-main .warp-main-input {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    color: #485166;
+    letter-spacing: 0;
+    border: 0;
+}
+
+/*修改提示文字的颜色*/
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color: #BBBBBB;
+}
+
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #BBBBBB;
+}
+
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #BBBBBB;
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #BBBBBB;
+}
+
+.warp-main-phone {
+    margin-left: 8%;
+}
+
+.warp-main-password {
+    margin-left: 12.5%;
+}
+
+/* hr样式 */
+.warp-main .warp-main-hr {
+    width: 92%;
+    margin: 1rem auto;
+    border-top: 1px solid #E9EAEC;
+    font-size: 0;
+    line-height: 0;
+}
+
+/* 登录按钮 */
+.login-btn {
+    margin: 0 4%;
+    width: 92%;
+    height: 4.4rem;
+    background: #0080CC;
+    border: 0;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+    font-size: 1.6rem;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+/*联系qq*/
+.login-prompt {
+    font-size: 1.4rem;
+    color: #A3A6AF;
+    letter-spacing: 0;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/*迁移成功*/
+.transfer-success {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    margin: -13rem 0;
+    display: none;
+}
+
+.success-img {
+    width: 6rem;
+    height: 7rem;
+    margin: 0 auto 1.3rem auto;
+}
+
+.success-img img {
+    width: 6rem;
+    height: 7rem;
+}
+
+.success-content-p {
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 2.2rem;
+    color: #495060;
+    letter-spacing: 0;
+}
+
+.success-href {
+    width: 54%;
+    height: 4.4rem;
+    margin: 2rem 23% 0;
+    border: 0;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+    font-size: 1.6rem;
+    color: #fff;
+    background: #0080CC;
+}

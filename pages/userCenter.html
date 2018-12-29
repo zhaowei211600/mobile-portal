@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>用户中心</title>
+
+    <link rel="stylesheet" type="text/css" href="../styles/font/iconfont.css">
+    <link rel="stylesheet" href="../styles/common/common.css" />
+    <link rel="stylesheet" href="../styles/userCenter.css" />
+
+</head>
+<body>
+<div class="wrap">
+    <!--多余占位置的-->
+    <div class="wrap-top-dy"></div>
+    <!--主体-->
+    <div class="wrap-main">
+        <div class="wrap-main-top"></div>
+        <div class="wrap-main-middle">
+            <div class="wrap-main-middle-round">
+                <img src="../styles/images/portrait.png" class="head-portrait">
+            </div>
+            <div class="wrap-main-middle-header">
+                <p>当前账号：<span id="phone"></span></p>
+            </div>
+        </div>
+        <div class="wrap-main-bottom">
+            <div class="wrap-main-bottom-content" id="applyMessage">
+                <span class="iconfont icon-renzhengxinxi"></span>
+                <span class="wrap-bottom-text">全部订单</span>
+                <span class="iconfont icon-youjiantou"></span>
+            </div>
+            <p class="warp-main-hr"></p>
+            <div class="wrap-main-bottom-content" id="myWallet">
+                <span class="iconfont icon-xiaoxiguanli"></span>
+                <span class="wrap-bottom-text">我的钱包</span>
+                <span class="iconfont icon-youjiantou"></span>
+            </div>
+            <p class="warp-main-hr"></p>
+            <div class="wrap-main-bottom-content" id="changePassword">
+                <span class="iconfont icon-mimaxiugai"></span>
+                <span class="wrap-bottom-text">重置密码</span>
+                <span class="iconfont icon-youjiantou"></span>
+            </div>
+            <p class="warp-main-hr"></p>
+            <div class="wrap-main-bottom-content" id="serviceNumber">
+                <span class="iconfont icon-bangzhu"></span>
+                <span class="wrap-bottom-text">服务电话:<a href="tel:010-89898899"/> 010-89898899</span>
+                <!--<span class="iconfont icon-youjiantou"></span>-->
+            </div>
+        </div>
+
+    </div>
+    <div class="wrap-btn">
+        <button class="wrap-btn-quit">退出登录</button>
+    </div>
+    <!--菜单-->
+    <div class="menu">
+        <div class="menu1">
+            <div class="assets_manage" id="assets_manage">首页</div>
+        </div>
+        <div class="menu2">
+            <div class="assets_check" id="assets_check">订单</div>
+        </div>
+        <div class="menu3 bg">
+            <div class="user_center" id="user_center">我的</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../scripts/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../scripts/common/jquery.cookie.js"></script>
+<script type="text/javascript" src="../scripts/common/common.js"></script>
+<script type="text/javascript" src="../scripts/userCenter.js"></script>
+</body>
+</html>
