@@ -81,8 +81,8 @@ $(function () {
     $(".assets_manage").click(function () {
         window.location.href = "/wechat/src/pages/assetsManage.html";
     });
-    $(".assets_check").click(function () {
-        window.location.href = "/wechat/src/pages/assetsCheck-scan.html";
+    $(".my_order").click(function () {
+        window.location.href = "/mobile-portal/pages/myOrder.html";
     });
     $(".user_center").click(function () {
         window.location.href = "/mobile-portal/pages/userCenter.html";

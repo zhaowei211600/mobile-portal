@@ -1,8 +1,10 @@
 loadingBlue()
+var cardImgFront;
+var cardImgBack;
 $(function () {
     "use strict";
     $('.loadingBlue').remove()
-    var jsondata,phone,password,passcheck,phonecheck,checkboxed,captcha,phonecf,captchacheck,reg,buttonStatus;
+    var jsondata,phone,password,passcheck,phonecheck,captcha,reg,realName, cardNo;
     $(".l-close, .agree").click(function () {
         $("#user-layer").hide();
     });
@@ -15,7 +17,9 @@ $(function () {
         password = $("#password").val();
         passcheck =  checkPassword(password);
         captcha = $("#yzm").val();
-        checkboxed = $("#awesome").prop('checked');
+        realName = $("#realName").val();
+        cardNo = $("#cardNo").val();
+
         phonecheck = checkPhone(phone,1,passcheck,password,captcha);
         if(!phonecheck) {
             if (phone == '' || phone == null) {
@@ -27,6 +31,18 @@ $(function () {
             }
             return false
         }
+        var form = new FormData();
+        form.append("cardImgBack", cardImgBack);
+        form.append("cardImgFront", cardImgFront);
+        form.append("phone", phone);
+        form.append("password", password);
+        form.append("messageCode", captcha);
+        form.append("cardNo", cardNo);
+        form.append("realName", realName);
+
+
+        loadingBlue()
+        register(form)
     });
 
     //手机号验证码校验
@@ -44,23 +60,23 @@ $(function () {
             }
             return false
         }
+        getyzm(phone);
     });
 
     //登录校验ajax，登陆成功 重定向 失败  alert（）
-    function getjson(phone,password,captcha) {
-        jsondata = {"phone":phone,"password":password,"captcha":captcha,"cert":cert};
+    function register(params) {
         $.ajax(
             {
-                url: BASEURL +"/register",
+                url: BASEURL +"/user/register",
                 type:"post",
-                dataType:"json",
-                // data:JSON.stringify(jsondata),
-                data:jsondata,
-                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+                data:params,
+                processData: false,
+                contentType: false,
+                crossDomain: true == !(document.all),
                 success:function (data) {
                     if(data.returnCode == 200 ){
                         greenAlertBox('注册成功，请登录');
-                        setTimeout('window.location.href = "/wechat/src/pages/login.html"',1000);
+                        setTimeout('window.location.href = "../pages/login.html"',1000);
                         $('.loadingBlue').remove();
                     }else {
                         var message = data.returnMessage || '注册失败！';
@@ -74,10 +90,10 @@ $(function () {
 
     //校验手机短信验证码
     function getyzm(phone) {
-        jsondata = {"phone":phone,"captcha":captcha};
+        jsondata = {"phone":phone,"type":1};
         $.ajax(
             {
-                url: BASEURL +"/sms",
+                url: BASEURL +"/user/verification",
                 type:"post",
                 dataType:"json",
                 // data:JSON.stringify(jsondata),
@@ -86,11 +102,13 @@ $(function () {
                 contentType: 'application/x-www-form-urlencoded;charset=utf-8',
                 success:function (data) {
                     if(data.returnCode == 200 ){
-
-                    }else if(data.returnCode == 500 ){
-                        greenAlertBox("发送失败");
+                        $("#btn-yzm").attr("disabled", true);
+                        greenAlertBox('验证码发送成功！');
+                        countDown(60);
+                    }else if(data.returnCode == 10003 ){
+                        greenAlertBox("该手机号已经注册！");
                     }else {
-                        var message = data.returnMessage || '验证码错误！';
+                        var message = data.returnMessage || '发送失败！';
                         greenAlertBox(message);
                     }
                 },
@@ -105,57 +123,6 @@ $(function () {
         if(!mobile.test(phone)){
             return false
         }else{
-            jsondata = {"phone":phone};
-            $.ajax(
-                {
-                    url: BASEURL +"/check/user",
-                    type:"post",
-                    dataType:"json",
-                    data:jsondata,
-                    contentType: 'application/x-www-form-urlencoded;charset=utf-8',
-                    success:function (data) {
-                        // console.log(data);
-                        if(data.returnCode == 201 ){
-                            greenAlertBox("该手机号已被注册");
-                        }else {
-                            if(buttonStatus == 1){
-                                if(!passcheck){
-                                    //alert("密码格式不正确");
-                                    if(password == '' || password == null)
-                                    {
-                                        greenAlertBox("密码不能为空");
-                                        return false
-                                    }else{
-                                        greenAlertBox("密码格式不正确");
-                                    }
-                                    return false
-                                }
-                                if(captcha == '' || captcha == null){
-                                    greenAlertBox("验证码不能为空");
-                                    return false
-                                }
-
-                                if(!window.verifySuccess){
-                                    greenAlertBox("请进行滑动验证");
-                                    return false
-                                }else{
-                                    loadingBlue()
-                                    getjson(phone,password,captcha,cert);
-                                }
-                            }else if(buttonStatus == 2){
-                                if(!window.verifySuccess){
-                                    greenAlertBox("请进行滑动验证");
-                                    return false
-                                }else{
-                                    $("#btn-yzm").attr("disabled", true);
-                                    getyzm(phone);
-                                    countDown(60);
-                                }
-                            }
-                        }
-                    }
-                }
-            );
             return true
         }
     }
@@ -196,4 +163,92 @@ $(function () {
             },1000);
         });
     }
+
 });
+
+//上传图片
+function validateCardImgFront(ele) {
+    alert(JSON.stringify(ele))
+    var file = ele.value;
+    if (!/.(jpg|jpeg|png)$/.test(file)) {
+        // alert('请上传正确格式的个人名片')
+        greenAlertBox( '请上传正确格式证件照')
+        return false;
+    } else {
+        if (((ele.files[0].size).toFixed(2)) >= (2 * 1024 * 1024)) {
+            // alert('请上传小于5M的图片')
+            greenAlertBox( '请上传小于2M的图片')
+            return false;
+        } else {
+            // $('.tipShow').show();
+            //获取文件
+            var file = $("#cardImgFront")[0].files[0];
+            //创建读取文件的对象
+            var reader = new FileReader();
+            //创建文件读取相关的变量
+
+            //为文件读取成功设置事件
+            reader.onload = function (e) {
+                // alert('文件读取完成');
+                cardImgFront = file;
+                //console.log(cardImgFront);
+                $("#cardImgFront_img").attr('src', e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+}
+
+function validateCardImgBack(ele) {
+    alert(JSON.stringify(ele))
+    var file = ele.value;
+    if (!/.(jpg|jpeg|png)$/.test(file)) {
+        // alert('请上传正确格式的个人名片')
+        greenAlertBox( '请上传正确格式证件照')
+        return false;
+    } else {
+        if (((ele.files[0].size).toFixed(2)) >= (2 * 1024 * 1024)) {
+            // alert('请上传小于5M的图片')
+            greenAlertBox( '请上传小于2M的图片')
+            return false;
+        } else {
+            // $('.tipShow').show();
+            //获取文件
+            var file = $("#cardImgBack")[0].files[0];
+            //创建读取文件的对象
+            var reader = new FileReader();
+            //创建文件读取相关的变量
+
+            //为文件读取成功设置事件
+            reader.onload = function (e) {
+                // alert('文件读取完成');
+                cardImgBack = file;
+
+                //console.log(cardImgFront);
+                $("#cardImgBack_img").attr('src', e.target.result);
+            };
+            reader.readAsDataURL(file);
+            //uploadFile(file);
+        }
+    }
+}
+
+function uploadFile(data) {
+        var formData = new FormData();
+        formData.append("file",data);
+        //压缩后异步上传
+        $.ajax({
+            url : BASEURL + "/user/file/upload",
+            type: "POST",
+            data : formData,
+            processData: false,
+            contentType: false,
+            crossDomain: true == !(document.all),
+            success : function(data) {
+                alert("成功");
+            },
+            error : function(){
+
+            }
+        });
+}

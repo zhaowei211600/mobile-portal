@@ -4,7 +4,7 @@ $(function () {
     $('.loadingBlue').remove()
     //重新登录
     $(".login-href").click(function () {
-        window.location.href = "/wechat/src/pages/login.html"
+        window.location.href = "../pages/login.html"
     });
 
     var jsondata,phone,phonecheck,password,password2,passcheck,captcha,phonecf,reg,buttonStatus;
@@ -17,16 +17,55 @@ $(function () {
         password2 = $("#twicePassword").val();
         passcheck =  checkPassword(password);
         phonecheck = checkPhone(phone,1,passcheck,password,password2);
-        if(!phonecheck) {
-            if (!phone) {
-                //alert("用户名不能为空！");
-                greenAlertBox("手机号不能为空");
+        if (!phonecheck) {
+            greenAlertBox("手机号输入不正确");
+            return false
+        }
+        if (!passcheck) {
+            greenAlertBox("密码输入格式不正确");
+            return false
+        }
+        if(!passcheck){
+            //alert("密码格式不正确");
+            if(!password)
+            {
+                greenAlertBox("密码不能为空");
                 return false
-            }else {
-                greenAlertBox("手机号不正确");
+            }else{
+                greenAlertBox("密码格式不正确");
             }
             return false
         }
+        if(password !== password2){
+            greenAlertBox("两次密码不一致");
+            return false
+        }
+        if(!captcha){
+            greenAlertBox("验证码不能为空");
+            return false
+        }
+
+        loadingBlue()
+        getjson(phone,password,captcha,password2);
+        /*jsondata = {"phone":phone};
+        $.ajax(
+            {
+                url: BASEURL +"/user/exist",
+                type:"post",
+                dataType:"json",
+                data:jsondata,
+                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+                success:function (data) {
+                    // console.log(data);
+                    if (data.returnCode == 10004) {
+                        greenAlertBox("该用户不存在");
+                    }else {
+
+
+                    }
+                }
+            }
+        );*/
     });
     //手机号验证码校验
     $("#btn-yzm").on('click',function () {
@@ -43,15 +82,17 @@ $(function () {
             }
             return false
         }
+        $("#btn-yzm").attr("disabled", true);
+        getyzm(phone);
     });
 
 
     //登录校验ajax，登陆成功 重定向 失败  alert（）
-    function getjson(phone,password,code,cert) {
-        jsondata = {"phone":phone,"captcha":code,"password":password,"cert":cert};
+    function getjson(phone,password,code,password2) {
+        jsondata = {"phone":phone,"messageCode":code,"password":password,"passwordAgain":password2};
         $.ajax(
             {
-                url: BASEURL +"/password/reset?code="+code,
+                url: BASEURL +"/user/password/reset",
                 type:"post",
                 dataType:"json",
                 data:jsondata,
@@ -70,75 +111,45 @@ $(function () {
         )
     }
 //手机号正则
-    function checkPhone(phone,buttonStatus,passcheck,password,password2) {
+    function checkPhone(phone) {
         const mobile=/^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(14[0-9]{1}|(19[0-9]{1})))+\d{8})$/;
         if(!mobile.test(phone)){
             return false
-        }else{
+        }
+        /*else{
             jsondata = {"phone":phone};
             $.ajax(
                 {
-                    url: BASEURL +"/check/user",
+                    url: BASEURL +"/user/exist",
                     type:"post",
                     dataType:"json",
                     data:jsondata,
                     contentType: 'application/x-www-form-urlencoded;charset=utf-8',
                     success:function (data) {
                         // console.log(data);
-                        if (data.returnCode == 202) {
-                            greenAlertBox("该用户不存在");
+                        if(data.returnCode == 10004){
+                            $("#btn-yzm").attr("disabled", true);
+                            return true;
+                        }
+                        if(data.returnCode == 10003 ){
+                            greenAlertBox("该手机号已被注册");
                         }else {
-                            if(buttonStatus == 1){
-                                if(!passcheck){
-                                    //alert("密码格式不正确");
-                                    if(!password)
-                                    {
-                                        greenAlertBox("密码不能为空");
-                                        return false
-                                    }else{
-                                        greenAlertBox("密码格式不正确");
-                                    }
-                                    return false
-                                }
-                                if(password !== password2){
-                                    greenAlertBox("两次密码不一致");
-                                    return false
-                                }
-                                if(!captcha){
-                                    greenAlertBox("验证码不能为空");
-                                    return false
-                                }
-                                if(!window.verifySuccess){
-                                    greenAlertBox("请进行滑动验证");
-                                    return false
-                                }else{
-                                    loadingBlue()
-                                    getjson(phone,password,captcha,cert);
-                                }
-                            }else if(buttonStatus == 2){
-                                if(!window.verifySuccess){
-                                    greenAlertBox("请进行滑动验证");
-                                    return false
-                                }else{
-                                    $("#btn-yzm").attr("disabled", true);
-                                    getyzm(phone);
-                                    countDown(60);
-                                }
-                            }
-
+                            greenAlertBox(data.returnMessage);
+                            return false
                         }
                     }
                 }
             );
             return true
-        }
+        }*/
+        return true;
     }
-    //校验手机短信验证码
+    //获取手机短信验证码
     function getyzm(phone) {
-        jsondata = {"phone":phone,"captcha":captcha};
+        jsondata = {"phone":phone, "type":2};
         $.ajax(
             {
-                url: BASEURL +"/sms",
+                url: BASEURL +"/user/verification",
                 type:"post",
                 dataType:"json",
                 data:jsondata,
@@ -146,10 +157,13 @@ $(function () {
                 success:function (data) {
                     if(data.returnCode == 200 ){
                         $("#yzmerror").hide();
-                    }else if(data.returnCode == 500 ){
-                        greenAlertBox("发送失败");
+                        countDown(60);
+                        greenAlertBox("短信验证码发送成功！");
+                        return;
+                    }else if(data.returnCode == 10004 ){
+                        greenAlertBox("手机号未注册");
                     }else {
-                        var message = data.returnMessage || '验证码错误！';
+                        var message = data.returnMessage;
                         greenAlertBox(message);
                     }
                 },

@@ -1,3 +1,18 @@
+//点击事件
+$(function () {
+
+        $("#myWallet").click(function () {
+            window.location.href = "/mobile-portal/pages/myWallet.html";
+        });
+        $("#changePassword").click(function () {
+            window.location.href = "/mobile-portal/pages/changePassword.html";
+        });
+        $(".wrap-btn-quit").click(function () {
+            loadingBlue()
+            exitSystem();
+        });
+});
+
 /*我的钱包*/
 var walletList = {
     init: function(){
@@ -52,7 +67,7 @@ var walletList = {
     query: function(){
         var _this = this;
         $.ajax({
-            url: BASEURL + "/product/finish",
+            url: BASEURL + "/product/list",
             data: JSON.stringify(_this.params),
             type: "post",
             dataType: "json",
@@ -75,11 +90,17 @@ var walletList = {
                             "<table>" +
                             "<tr class='standard'>" +
                             "<td colspan='2'>" + item.name + "</td>" +
-                            "<td colspan='2'>" + item.productId + "</td>" +
+                            "<td colspan='2'>" + item.createTime + "</td>" +
                             "</tr>" +
                             "<tr>" +
-                            "<td colspan='2'>¥" + item.realCost + "</td>" +
-                            "<td colspan='2'>" + item.realDeliveryTime + "</td>" +
+                            "<td colspan='4'>¥" + item.budget + "</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td colspan='4'>" + item.desc + "</td>" +
+                            "</tr>" +
+                            "<tr class='standard'>" +
+                            "<td colspan='2'>工期:" + item.period + "</td>" +
+                            "<td colspan='2'>期望交付时间:" + item.expectDeliveryTime + "</td>" +
                             "</tr>" +
                             "</table>" +
                             "</li>";

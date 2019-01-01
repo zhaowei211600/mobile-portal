@@ -1,5 +1,5 @@
 /*我的钱包*/
-var walletList = {
+var orderList = {
     init: function(){
         this.loadOK = false;
         this.params = {};
@@ -52,7 +52,7 @@ var walletList = {
     query: function(){
         var _this = this;
         $.ajax({
-            url: BASEURL + "/product/finish",
+            url: BASEURL + "/order/user",
             data: JSON.stringify(_this.params),
             type: "post",
             dataType: "json",
@@ -65,23 +65,35 @@ var walletList = {
                     $(".content-wrap .content-body").show();
                     $(".content-wrap .data-empty").hide();
                     var dataHTML = "";
-                    var emailStatus = "";
-                    var monitorStatusHTML = "";
-                    var checkStatus = "";
+                    var status = "";
                     // 将 返回数据中每一项下的checkInvoice属性扩展到该项后面
                     mapData.forEach(function (item, index, array) {
+                        if(item.status == '1'){
+                            status = '待确认';
+                        }else if(item.status == '2'){
+                            status = '已接单';
+                        }else if(item.status == '3'){
+                            status = '待验收';
+                        }else if(item.status == '4'){
+                            status = '已验收';
+                        }
                         dataHTML +=
                             "<li>" +
                             "<table>" +
                             "<tr class='standard'>" +
-                            "<td colspan='2'>" + item.name + "</td>" +
-                            "<td colspan='2'>" + item.productId + "</td>" +
+                            "<td colspan='4'>" + item.productName + "</td>" +
                             "</tr>" +
                             "<tr>" +
-                            "<td colspan='2'>¥" + item.realCost + "</td>" +
-                            "<td colspan='2'>" + item.realDeliveryTime + "</td>" +
+                            "<td colspan='2'>¥" + item.budget + "</td>" +
+                            "<td colspan='2'>" + status + "</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td colspan='4'>¥" + item.createTime + "</td>" +
                             "</tr>" +
                             "</table>" +
+                            "<a href='../src/pages/assetsInfo.html?orderId=" + item.id + "' class='ticket-info'>" +
+                            "<i class='iconfont icon-youjiantou'></i>" +
+                            "</a>" +
                             "</li>";
                     });
                     $(".content-body ul").append(dataHTML);
@@ -113,5 +125,5 @@ var walletList = {
 };
 
 +(function(){
-    walletList.init();
+    orderList.init();
 })();

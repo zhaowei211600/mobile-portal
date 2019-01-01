@@ -53,7 +53,7 @@
 .wrap-companyImg img{
     position: absolute;
     left: 8.3%;
-    top: 14.8rem;
+    top: 24.6rem;
     width: 84%;
     height: 18.9rem;
     z-index: 1;
@@ -129,7 +129,7 @@
     float: right;
 }
 
-.login-btn-yzm{
+/*.login-btn-yzm{
     width: 100%;
     border: 0 solid rgba(255,255,255,0);
     border-left: 1px solid #E9EAEC;
@@ -138,7 +138,7 @@
     letter-spacing: 0;
     font-size: 1.2rem;
     line-height: 2.4rem;
-}
+}*/
 .login-btn-yzm[disabled]{
     color:#999;
 }

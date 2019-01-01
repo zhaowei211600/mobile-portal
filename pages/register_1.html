@@ -18,12 +18,6 @@
     </div>
     <div>
         <div class="warp-main">
-            <span class="warp-main-span">注册手机号</span>
-            <input type="tel" onkeyup="value=value.replace(/[^0-9]/g,'')" placeholder="请填写您的手机号" id="phone" maxlength="11" class="warp-main-input warp-main-phone">
-            <p class="warp-main-hr"></p>
-            <span class="warp-main-span">登录密码</span>
-            <input type="password" placeholder="请填写8-16位字母、数字混合密码" id="password" maxlength="16" class="warp-main-input warp-main-password">
-            <p class="warp-main-hr"></p>
             <span class="warp-main-span">真实姓名</span>
             <input type="text" placeholder="请填写真实姓名" id="realName" maxlength="8" class="warp-main-input ">
             <p class="warp-main-hr"></p>
@@ -32,26 +26,20 @@
             <p class="warp-main-hr"></p>
             <div class="wrap-companyImg">
                 <div class="iconfont icon-jiahao"></div>
-                <img id="cardImgFront_img" src="" alt="">
-                <input type="file" id="cardImgFront" name="cardImgFront" onchange="Javascript:validateCardImgFront(this);" >
+                <img src="" alt="">
+                <input type="file" id="cardImgFront" name="file" onchange="Javascript:validate_img(this);" >
                 <p class="wrap-companyCard">选择身份证正面照</p>
                 <p class="wrap-2m">文件支持：jpg/jepg/png格式图片，不超过2M</p>
             </div>
             <p class="warp-main-hr"></p>
             <div class="wrap-companyImg">
                 <div class="iconfont icon-jiahao"></div>
-                <img id="cardImgBack_img" style="top: 48rem;" src="" alt="">
-                <input type="file" id="cardImgBack" name="cardImgBack" onchange="Javascript:validateCardImgBack(this);" >
+                <img src="" alt="">
+                <input type="file" id="cardImgBack" name="file" onchange="Javascript:validate_img(this);" >
                 <p class="wrap-companyCard">选择身份证反面照</p>
                 <p class="wrap-2m">文件支持：jpg/jepg/png格式图片，不超过2M</p>
             </div>
-            <p class="warp-main-hr"></p>
-            <div class="yzm-row">
-                <span class="warp-main-span">短信验证码</span>
-                <input type="tel" onkeyup="value=value.replace(/[^0-9]/g,'')" placeholder="请填写短信验证码" id="yzm" maxlength="6" class="warp-main-input warp-main-yzm">
-                <button class="login-btn-yzm" id="btn-yzm" >发送验证码</button>
-            </div>
-            <button class="login-btn" id="login">注册</button>
+            <button class="login-btn" id="login">下一步</button>
         </div>
     </div>
 </div>
