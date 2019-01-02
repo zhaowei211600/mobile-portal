@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>项目详情页</title>
+    <link rel="stylesheet" href="../styles/common/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/font/iconfont.css">
+    <link rel="stylesheet" href="../styles/common/common.css" />
+    <link rel="stylesheet" href="../styles/home.css" />
+</head>
+<body>
+    <!--顶部导航搜索-->
+    <div class="top-search">
+        <div class="search-bar">
+            项目详情
+        </div>
+        <a href="../pages/home.html" class="s-back"><i class="iconfont icon-fanhuizuojiantou"></i></a>
+    </div>
+
+    <div class="home-detail-head">
+        <div class="leftright">
+            <div class="ft" id="productName"></div>
+            <div>发布时间：<span id="publishTime"></span></div>
+        </div>
+        <div class="leftright">
+            <div>预算：<span class="red" id="budget"></span></div>
+            <div>工期：<span id="period"></span>个月</div>
+        </div>
+        <div class="leftright">
+            <div>联系方式：<span>接单成功后可见</span></div>
+            <div>期望交付时间：<span id="expectDeliveryTime"></span></div>
+        </div>
+    </div>
+
+    <div class="detail-detail">
+        <div class="detail-detail-head">项目描述</div>
+        <div class="col99" id="desc">
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <div style="color: #999999;"><div>已有 <span id="totalUser">0</span> 位</div><div>同行完成申请</div></div>
+        <div class="acceptBtnStyle" id="confirmOrder">立即接单</div>
+    </div>
+
+
+
+    <script type="text/javascript" src="../scripts/lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../scripts/common/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../scripts/common/common.js"></script>
+    <script type="text/javascript" src="../scripts/homeDetail.js"></script>
+
+</body>
+</html>

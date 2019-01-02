@@ -78,14 +78,14 @@ $(function () {
 
 
     //点击菜单跳转
-    $(".assets_manage").click(function () {
-        window.location.href = "/wechat/src/pages/assetsManage.html";
+    $(".home").click(function () {
+        window.location.href = "../pages/home.html";
     });
     $(".my_order").click(function () {
-        window.location.href = "/mobile-portal/pages/myOrder.html";
+        window.location.href = "../pages/myOrder.html";
     });
     $(".user_center").click(function () {
-        window.location.href = "/mobile-portal/pages/userCenter.html";
+        window.location.href = "../pages/userCenter.html";
     });
 
     //全局处理异常
@@ -129,10 +129,10 @@ $(function () {
             // 令牌失效
             console.log(XMLHttpRequest.responseJSON);
             if(!XMLHttpRequest.responseJSON == undefined || !XMLHttpRequest.responseJSON == null || !XMLHttpRequest.responseJSON == ""){
-                if(XMLHttpRequest.responseJSON.returnCode == "401" && XMLHttpRequest.responseJSON.returnMessage == "令牌已失效"){
+                if(XMLHttpRequest.responseJSON.returnCode == "11001" || XMLHttpRequest.responseJSON.returnMessage == "token丢失或错误"){
                     document.cookie = "Authorization=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
                     greenAlertBox("令牌已失效,请重新登录")
-                    setTimeout("window.location.href = '/wechat/src/pages/login.html'", 1500);
+                    setTimeout("window.location.href = '../pages/login.html'", 1500);
                     $('.loadingBlue').remove()
                 }
             }

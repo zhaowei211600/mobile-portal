@@ -73,7 +73,7 @@ function getjson(phone,password) {
                         // expTime.setTime(expTime.getTime() + 1*60*60*1000);
                         // console.log(expTime.toGMTString());
                         setTokenString(content);
-                        window.location.href = '/mobile-portal/pages/userCenter.html';
+                        window.location.href = '../pages/userCenter.html';
                         $('.loadingBlue').remove();
                     }
                 }

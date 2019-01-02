@@ -124,13 +124,13 @@ $(function () {
 
     if(!$.cookie('Authorization')){
         greenAlertBox("令牌已失效,请重新登录");
-        setTimeout("window.location.href = '/mobile-portal/pages/login.html'", 1500);
+        setTimeout("window.location.href = '../pages/login.html'", 1500);
     }else{
         $("#myWallet").click(function () {
-            window.location.href = "/mobile-portal/pages/myWallet.html";
+            window.location.href = "../pages/myWallet.html";
         });
         $("#changePassword").click(function () {
-            window.location.href = "/mobile-portal/pages/changePassword.html";
+            window.location.href = "../pages/changePassword.html";
         });
         $(".wrap-btn-quit").click(function () {
             loadingBlue()

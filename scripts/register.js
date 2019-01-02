@@ -168,7 +168,6 @@ $(function () {
 
 //上传图片
 function validateCardImgFront(ele) {
-    alert(JSON.stringify(ele))
     var file = ele.value;
     if (!/.(jpg|jpeg|png)$/.test(file)) {
         // alert('请上传正确格式的个人名片')
@@ -200,7 +199,6 @@ function validateCardImgFront(ele) {
 }
 
 function validateCardImgBack(ele) {
-    alert(JSON.stringify(ele))
     var file = ele.value;
     if (!/.(jpg|jpeg|png)$/.test(file)) {
         // alert('请上传正确格式的个人名片')

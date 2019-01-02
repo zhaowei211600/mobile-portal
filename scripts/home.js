@@ -2,10 +2,10 @@
 $(function () {
 
         $("#myWallet").click(function () {
-            window.location.href = "/mobile-portal/pages/myWallet.html";
+            window.location.href = "../pages/myWallet.html";
         });
         $("#changePassword").click(function () {
-            window.location.href = "/mobile-portal/pages/changePassword.html";
+            window.location.href = "../pages/changePassword.html";
         });
         $(".wrap-btn-quit").click(function () {
             loadingBlue()
@@ -66,6 +66,8 @@ var walletList = {
     },
     query: function(){
         var _this = this;
+        //只显示待接单
+        _this.params.status = 1;
         $.ajax({
             url: BASEURL + "/product/list",
             data: JSON.stringify(_this.params),
@@ -83,10 +85,28 @@ var walletList = {
                     var emailStatus = "";
                     var monitorStatusHTML = "";
                     var checkStatus = "";
+
                     // 将 返回数据中每一项下的checkInvoice属性扩展到该项后面
                     mapData.forEach(function (item, index, array) {
                         dataHTML +=
-                            "<li>" +
+                            "<li style=\"margin-bottom: 10px;margin-top: 0;padding: 10px 15px;border: none;\" onclick='showDetail("+item.id+")'>" +
+                            "                <div>" +
+                            "                    <div style=\"font-size: 16px;\">\n" +
+                            "                        "+item.name+"<span style=\"font-size: 12px;color: #999999;float: right;\">"+item.createTime+"</span>" +
+                            "                    </div>" +
+                            "                    <div style=\"padding-top: 5px;\">\n" +
+                            "                        预算：<span style=\"color: red;\">￥"+item.budget+"</span>\n" +
+                            "                    </div>" +
+                            "                    <div style=\"padding-top: 5px;color: #999999;\">\n" +
+                            item.desc +
+                            "                    </div>" +
+                            "                    <div style=\"display: flex;flex-direction: row;justify-content: space-between;padding-top: 5px;font-size: 12px;\">\n" +
+                            "                        <div>工期：<span>"+item.period+"</span>个月</div>\n" +
+                            "                        <div>期望交付时间：<span>"+item.expectDeliveryTime+"</span></div>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "            </li>"
+                            /*"<li>" +
                             "<table>" +
                             "<tr class='standard'>" +
                             "<td colspan='2'>" + item.name + "</td>" +
@@ -103,7 +123,7 @@ var walletList = {
                             "<td colspan='2'>期望交付时间:" + item.expectDeliveryTime + "</td>" +
                             "</tr>" +
                             "</table>" +
-                            "</li>";
+                            "</li>"*/;
                     });
                     $(".content-body ul").append(dataHTML);
                     if($(".content-body ul").children().length < data.total){
@@ -136,3 +156,7 @@ var walletList = {
 +(function(){
     walletList.init();
 })();
+
+function showDetail(id){
+    window.location.href = '../pages/home-detail.html?productId='+id;
+}

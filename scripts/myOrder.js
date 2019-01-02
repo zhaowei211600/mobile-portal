@@ -91,7 +91,7 @@ var orderList = {
                             "<td colspan='4'>¥" + item.createTime + "</td>" +
                             "</tr>" +
                             "</table>" +
-                            "<a href='../src/pages/assetsInfo.html?orderId=" + item.id + "' class='ticket-info'>" +
+                            "<a href='../pages/order-detail.html?productId=" + item.productId + "' class='ticket-info'>" +
                             "<i class='iconfont icon-youjiantou'></i>" +
                             "</a>" +
                             "</li>";

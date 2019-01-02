@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="../styles/common/common.css" />
     <link rel="stylesheet" href="../styles/assetsManage.css" />
     <link rel="stylesheet" href="../styles/userCenter.css" />
+    <link rel="stylesheet" href="../styles/home.css" />
 
 </head>
 <body>
 
 <div class="content-wrap my-asset-i">
     <!--顶部导航搜索-->
-    <div class="top-search">
+    <div class="top-search" style="position: relative;">
         <div id="myCarousel" class="carousel slide">
             <!-- 轮播（Carousel）指标 -->
             <ol class="carousel-indicators">
@@ -47,23 +48,40 @@
             </a>
         </div>
 
-        <div class="search-body">
-            <ul class="nav nav-tabs">
-                <li class="active">
-                    <a href="#">首页</a>
-                </li>
-                <li>
-                    <a href="#">资料</a>
-                </li>
-                <li class="disabled">
-                    <a href="#">信息</a>
-                </li>
-            </ul>
-        </div>
+    </div>
+    <!--tab-->
+    <div class="home-search-body">
+        <ul class="nav">
+            <li>
+                <div class="active">全部</div>
+                <div class="greenline active"></div>
+            </li>
+            <li>
+                <div>法律服务</div>
+                <div class="greenline"></div>
+            </li>
+            <li >
+                <div>税务筹划</div>
+                <div class="greenline"></div>
+            </li>
+            <li >
+                <div>全部</div>
+                <div class="greenline"></div>
+            </li>
+            <li>
+                <div>法律服务</div>
+                <div class="greenline"></div>
+            </li>
+            <li >
+                <div>税务筹划</div>
+                <div class="greenline"></div>
+            </li>
+        </ul>
     </div>
     <!--数据列表-->
-    <div class="content-body">
-        <ul></ul>
+    <div class="content-body" style="margin-top: 0;">
+        <ul style="margin: 0 auto;">
+        </ul>
     </div>
 </div>
 <div class="wrap">

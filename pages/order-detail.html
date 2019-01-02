@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>订单详情页</title>
+    <link rel="stylesheet" href="../styles/common/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/font/iconfont.css">
+    <link rel="stylesheet" href="../styles/common/common.css" />
+    <link rel="stylesheet" href="../styles/home.css" />
+</head>
+<body>
+<!--顶部导航搜索-->
+<div class="top-search">
+    <div class="search-bar">
+        订单详情
+    </div>
+    <a href="../pages/myOrder.html" class="s-back"><i class="iconfont icon-fanhuizuojiantou"></i></a>
+</div>
+
+<div class="home-detail-head">
+    <div class="leftright">
+        <div class="ft" id="productName"></div>
+        <div>发布时间：<span id="publishTime"></span></div>
+    </div>
+    <div class="leftrightL" >
+        <div>预算：<span class="red" id="budget"></span></div>
+        <div class="order-leftright" id="status"></div>
+    </div>
+    <div class="leftright">
+        <div>联系方式：<span id="contactPhone"></span></div>
+        <div>期望交付时间：<span id="expectDeliveryTime"></span></div>
+    </div>
+</div>
+<div class="home-detail-head apply_delivery" style="display: none">
+    <div class="leftright">
+        <div><span id="deliveryTime"></span></div>
+        <div><span id="deliveryStatus"></span></div>
+    </div>
+</div>
+
+<div class="detail-detail">
+    <div class="detail-detail-head">项目描述</div>
+    <div class="col99" id="desc">
+
+    </div>
+</div>
+
+<div class="detail-detail apply_delivery" style="display: none">
+    <div class="detail-detail-head">完成情况描述</div>
+    <div class="col99" id="">
+        <input type="textarea" id="deliveryDesc"/>
+    </div>
+</div>
+
+<div class="footer order-footer">
+    <div class="acceptBtnStyle" id="apply">交付结项申请</div>
+</div>
+
+<div class="footer order-footer apply_delivery" style="display: none">
+    <div class="acceptBtnStyle" id="applyDelivery">确认提交</div>
+</div>
+
+
+
+<script type="text/javascript" src="../scripts/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../scripts/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="../scripts/common/jquery.cookie.js"></script>
+<script type="text/javascript" src="../scripts/common/common.js"></script>
+<script type="text/javascript" src="../scripts/orderDetail.js"></script>
+
+
+</body>
+</html>
