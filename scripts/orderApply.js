@@ -24,12 +24,12 @@ $(function () {
             if (result.returnCode == "200") {
                 var status = '';
                 var data = result.data;
+                var deliveryStatus = '';
                 orderStatus = data.status;
                 $("#productName").html(data.name);
                 $("#budget").html("￥"+data.budget);
                 $("#expectDeliveryTime").html(data.expectDeliveryTime);
                 $("#publishTime").html(data.createTime);
-                $("#desc").html(data.desc);
                 $("#period").html(data.period);
                 $("#contactPhone").html(data.phone);
                 if(data.status == '1'){
@@ -42,19 +42,48 @@ $(function () {
                     status = '已验收';
                 }
                 $("#status").html(status);
-
+                if(dateCompare(data.expectDeliveryTime)){
+                    deliveryStatus = '正常';
+                }else{
+                    deliveryStatus = '超期';
+                }
+                $("#deliveryStatus").html(deliveryStatus);
+                $("#deliveryTime").html(dateFormat(new Date()));
             }
         }
     })
 });
 
 $(function () {
-    $("#apply").click(function () {
-        if(orderStatus != '2'){
-            greenAlertBox('当前状态无法结项');
-            return false;
-        }else{
-            window.location.href = '../pages/order-apply.html?productId='+param['productId'];
-        }
+    $("#applyDelivery").click(function () {
+        alert($("#deliveryDesc").val());
+        param.deliveryDesc = $("#deliveryDesc").val();
+        $.ajax({
+            url: BASEURL + "/product/apply?productId="+param['productId'],
+            data: JSON.stringify(param),
+            type: "post",
+            dataType: "json",
+            contentType: "application/json",
+            success: function(result) {
+                if (result.returnCode == "200") {
+                    greenAlertBox("申请成功，请等待审核！");
+                    window.location.href = '../pages/myOrder.html';
+                }
+            }
+        })
     });
 });
+
+function dateCompare(time) {
+    var curTime = new Date();
+    var expectDeliveryTime = new Date(Date.parse(time));
+//进行比较
+    return (curTime<= expectDeliveryTime);
+}
+
+function dateFormat(val, row) {
+    if (val != null) {
+        var date = new Date(val);
+        return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    }
+}

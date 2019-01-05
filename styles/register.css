@@ -37,7 +37,7 @@
     width: 60%;
 }
 
-    /*修改提示文字的颜色*/
+/*修改提示文字的颜色*/
 input::-webkit-input-placeholder { /* WebKit browsers */
     color: #BBBBBB;
 }

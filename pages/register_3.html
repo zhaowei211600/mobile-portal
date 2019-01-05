@@ -17,49 +17,36 @@
     <!--顶部导航搜索-->
     <div>
         <div class="search-bar" style="background-color: #F8F8F9;">
-            注册
+            设置密码
         </div>
         <a href="../pages/home.html" class="s-back"><i class="iconfont icon-fanhuizuojiantou"></i></a>
     </div>
     <div style="text-align: center;line-height: 30px;">
-        <span class="ju">1.实名认证</span><span> > 2.手机验证 > 3.设置密码</span>
+        <span>1.实名认证 > </span><span>2.手机验证 > </span><span class="ju">3.设置密码</span>
     </div>
 
     <div>
         <div class="warp-main">
             <div>
-                <input type="text" placeholder="请填写真实姓名" id="realName" maxlength="8" class="warp-main-input ">
+                <input type="text" placeholder="输入密码" id="realName" maxlength="8" class="warp-main-input ">
 
             </div>
             <div>
-                <input type="text" placeholder="请填写证件号码" id="cardNo" maxlength="30" class="warp-main-input ">
+                <input type="text" placeholder="确认密码" id="cardNo" maxlength="30" class="warp-main-input ">
             </div>
 
-            <div class="wrap-companyImg">
-                <!--<div class="iconfont icon-jiahao"></div>-->
-                <img src="" alt="">
-                <input type="file" id="cardImgFront" name="file" onchange="Javascript:validate_img(this);" >
-                <p class="wrap-companyCard">选择身份证正面照</p>
-                <p class="wrap-2m">文件支持：jpg/jepg/png格式图片，不超过2M</p>
-            </div>
+            <div class="fs12">密码长度8-12位，需包含数字、字母、符号至少两种或以上元素。</div>
+            <button class="login-btn" id="login">确认提交</button>
 
-            <div class="wrap-companyImg">
-                <!--<div class="iconfont icon-jiahao"></div>-->
-                <img src="" alt="">
-                <input type="file" id="cardImgBack" name="file" onchange="Javascript:validate_img(this);" >
-                <p class="wrap-companyCard">选择身份证反面照</p>
-                <p class="wrap-2m">文件支持：jpg/jepg/png格式图片，不超过2M</p>
-            </div>
-            <button class="login-btn" id="login">下一步</button>
-            <p class="fs12"><span style="color: blue;">《用户注册协议》</span>点击下一步视为同意相关注册协议，可查看详情</p>
         </div>
-
     </div>
 </div>
+
 <script type="text/javascript" src="../scripts/lib/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../scripts/lib/slider.js"></script>
 <script type="text/javascript" src="../scripts/common/jquery.cookie.js"></script>
 <script type="text/javascript" src="../scripts/common/common.js"></script>
 <script type="text/javascript" src="../scripts/register.js"></script>
+
 </body>
 </html>
