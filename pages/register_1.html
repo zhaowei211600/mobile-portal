@@ -11,6 +11,40 @@
     <link rel="stylesheet" href="../styles/userApply.css" />
     <link rel="stylesheet" type="text/css" href="../styles/font/iconfont.css">
     <link rel="stylesheet" href="../styles/home.css">
+    <style type="text/css">
+        .wrap-register{
+            width: 84%;
+            height: 18.9rem;
+            margin: 2rem 8%;
+            background: #FFFFFF;
+            border: 1px solid #DDDEE1;
+            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .wrap-register img{
+            position: absolute;
+            left: 8.3%;
+            width: 84%;
+            height: 18.9rem;
+            z-index: 1;
+        }
+        .wrap-register p {
+            display: block;
+            position: relative;
+            left: 0;
+            top: -19rem;
+        }
+        .wrap-register input{
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            position: relative;
+            left: 0;
+            top: -0.2rem;
+            z-index: 2;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <div class="wrap">
@@ -19,7 +53,7 @@
         <div class="search-bar" style="background-color: #F8F8F9;">
             注册
         </div>
-        <a href="../pages/home.html" class="s-back"><i class="iconfont icon-fanhuizuojiantou"></i></a>
+        <a href="../pages/login.html" class="s-back"><i class="iconfont icon-fanhuizuojiantou"></i></a>
     </div>
     <div style="text-align: center;line-height: 30px;">
         <span class="ju">1.实名认证</span><span> > 2.手机验证 > 3.设置密码</span>
@@ -28,27 +62,31 @@
     <div>
         <div class="warp-main">
             <div>
-                <input type="text" placeholder="请填写真实姓名" id="realName" maxlength="8" class="warp-main-input ">
+                <span class="warp-main-span">真实姓名</span>
+                <input type="text" placeholder="请填写真实姓名" id="realName" maxlength="8" class="warp-main-input warp-main-password">
             </div>
             <div>
-                <input type="text" placeholder="请填写证件号码" id="cardNo" maxlength="30" class="warp-main-input ">
+                <p class="warp-main-hr"></p>
+                <span class="warp-main-span">证件号码</span>
+                <input type="text" placeholder="请填写证件号码" id="cardNo" maxlength="30" class="warp-main-input warp-main-password">
             </div>
-            <div class="wrap-companyImg">
+            <p class="warp-main-hr"></p>
+            <div class="wrap-register">
                 <!--<div class="iconfont icon-jiahao"></div>-->
-                <img src="" alt="">
-                <input type="file" id="cardImgFront" name="file" onchange="Javascript:validate_img(this);" >
+                <img id="cardImgFront_img" src="" alt="">
+                <input type="file" id="cardImgFront" name="file" onchange="Javascript:validateCardImgFront(this);" >
                 <p class="wrap-companyCard">选择身份证正面照</p>
                 <p class="wrap-2m">文件支持：jpg/jpeg/png格式图片，不超过2M</p>
             </div>
-
-            <div class="wrap-companyImg">
+            <p class="warp-main-hr"></p>
+            <div class="wrap-register">
                 <!--<div class="iconfont icon-jiahao"></div>-->
-                <img src="" alt="">
-                <input type="file" id="cardImgBack" name="file" onchange="Javascript:validate_img(this);" >
+                <img id="cardImgBack_img" src="" alt="">
+                <input type="file" id="cardImgBack" name="file" onchange="Javascript:validateCardImgBack(this);" >
                 <p class="wrap-companyCard">选择身份证反面照</p>
                 <p class="wrap-2m">文件支持：jpg/jpeg/png格式图片，不超过2M</p>
             </div>
-            <button class="login-btn" id="login">下一步</button>
+            <button class="login-btn" id="register_next">下一步</button>
             <p class="fs12"><span style="color: blue;">《用户注册协议》</span>点击下一步视为同意相关注册协议，可查看详情</p>
         </div>
 
@@ -58,6 +96,6 @@
 <script type="text/javascript" src="../scripts/lib/slider.js"></script>
 <script type="text/javascript" src="../scripts/common/jquery.cookie.js"></script>
 <script type="text/javascript" src="../scripts/common/common.js"></script>
-<script type="text/javascript" src="../scripts/register.js"></script>
+<script type="text/javascript" src="../scripts/register_1.js"></script>
 </body>
 </html>

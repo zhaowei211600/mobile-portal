@@ -58,7 +58,7 @@ body{
 .acceptBtnStyle{
     height: 40px;
     line-height: 40px;
-    background-color: red;
+    background-color: #0080CC;
     color: #ffffff;
     width: 50%;
     font-size: 16px;

@@ -19,7 +19,7 @@
         <div class="search-bar" style="background-color: #F8F8F9;">
             设置密码
         </div>
-        <a href="../pages/home.html" class="s-back"><i class="iconfont icon-fanhuizuojiantou"></i></a>
+        <a href="../pages/register_2.html" class="s-back"><i class="iconfont icon-fanhuizuojiantou"></i></a>
     </div>
     <div style="text-align: center;line-height: 30px;">
         <span>1.实名认证 > </span><span>2.手机验证 > </span><span class="ju">3.设置密码</span>
@@ -27,15 +27,11 @@
 
     <div>
         <div class="warp-main">
-            <div>
-                <input type="text" placeholder="输入密码" id="realName" maxlength="8" class="warp-main-input ">
-
-            </div>
-            <div>
-                <input type="text" placeholder="确认密码" id="cardNo" maxlength="30" class="warp-main-input ">
-            </div>
-
-            <div class="fs12">密码长度8-12位，需包含数字、字母、符号至少两种或以上元素。</div>
+            <span class="warp-main-span">输入密码</span>
+            <input type="password" placeholder="请填写8-16位字母、数字混合密码" id="password" maxlength="16" class="warp-main-input warp-main-password">
+            <p class="warp-main-hr"></p>
+            <span class="warp-main-span">确认密码</span>
+            <input type="password" placeholder="请填写8-16位字母、数字混合密码" id="passwordAgain" maxlength="16" class="warp-main-input warp-main-password">
             <button class="login-btn" id="login">确认提交</button>
 
         </div>
@@ -46,7 +42,7 @@
 <script type="text/javascript" src="../scripts/lib/slider.js"></script>
 <script type="text/javascript" src="../scripts/common/jquery.cookie.js"></script>
 <script type="text/javascript" src="../scripts/common/common.js"></script>
-<script type="text/javascript" src="../scripts/register.js"></script>
+<script type="text/javascript" src="../scripts/register_3.js"></script>
 
 </body>
 </html>

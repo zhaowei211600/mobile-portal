@@ -227,3 +227,16 @@ input:-ms-input-placeholder { /* Internet Explorer 10+ */
     height: 100%;
     vertical-align: middle;
 }
+.fs12{
+    font-size: 1.2rem;
+    text-align: center;
+    color: #999999;
+    line-height: 20px;
+    margin-top: 1rem;
+}
+.getQuery{
+    width: 40%;float: right;margin-top: 0.25rem;
+}
+.ju{
+    color: rgb(247,105,106)
+}

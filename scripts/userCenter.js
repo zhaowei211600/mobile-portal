@@ -132,6 +132,9 @@ $(function () {
         $("#changePassword").click(function () {
             window.location.href = "../pages/changePassword.html";
         });
+        $("#myOrder").click(function () {
+            window.location.href = "../pages/myOrder.html";
+        });
         $(".wrap-btn-quit").click(function () {
             loadingBlue()
             exitSystem();
