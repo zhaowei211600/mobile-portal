@@ -1,9 +1,27 @@
 loadingBlue()
+var cardImgFront;
+var cardImgBack;
 $("#register_next").click(function () {
     var realName = $("#realName").val();
     var cardNo = $("#cardNo").val();
-    var cardImgFront = localStorage.getItem("user.cardImgFront.name");
-    var cardImgBack = localStorage.getItem("user.cardImgBack.name");
+    if(realName == 'undefined' || realName == '' || realName == null){
+        greenAlertBox("请填写真实姓名！");
+        return false;
+    }
+    if(cardNo == 'undefined' || cardNo == '' || cardNo == null){
+        greenAlertBox("请填写证件号码！");
+        return false;
+    }
+    if(cardImgBack == 'undefined' || cardImgBack == '' || cardImgBack == null){
+        greenAlertBox("请上传身份证背面图片！");
+        return false;
+    }
+    if(cardImgFront == 'undefined' || cardImgFront == '' || cardImgFront == null){
+        greenAlertBox("请上传身份证正面图片！");
+        return false;
+    }
+    localStorage.setItem("user.cardImgFront", cardImgFront);
+    localStorage.setItem("user.cardImgBack", cardImgBack);
 
 
     /*if (checkRealName(realName)) {
@@ -47,7 +65,7 @@ function validateCardImgFront(ele) {
         greenAlertBox('请上传正确格式证件照')
         return false;
     } else {
-        if (((ele.files[0].size).toFixed(2)) >= (2 * 1024 * 1024)) {
+        if (((ele.files[0].size).toFixed(2)) >= (5 * 1024 * 1024)) {
             // alert('请上传小于5M的图片')
             greenAlertBox('请上传小于2M的图片')
             return false;
@@ -61,11 +79,28 @@ function validateCardImgFront(ele) {
 
             //为文件读取成功设置事件
             reader.onload = function (e) {
-                // alert('文件读取完成');
-                localStorage.setItem("user.cardImgFront.name", file.name);
-                localStorage.setItem("user.cardImgFront.type", file.type);
-                localStorage.setItem("user.cardImgFront.result", e.target.result);
                 $("#cardImgFront_img").attr('src', e.target.result);
+                var formData = new FormData();
+                formData.append("file",file);
+                //压缩后异步上传
+                $.ajax({
+                    url : BASEURL + "/user/file/upload",
+                    type: "POST",
+                    data : formData,
+                    processData: false,
+                    contentType: false,
+                    crossDomain: true == !(document.all),
+                    success : function(data) {
+                        if(data.returnCode == '200'){
+                            cardImgFront =  data.data;
+                            return true;
+                        }
+                        greenAlertBox("文件上传失败:"+ data.returnMessage);
+                    },
+                    error : function(){
+                        greenAlertBox("文件上传失败！");
+                    }
+                });
             };
             reader.readAsDataURL(file);
         }
@@ -79,7 +114,7 @@ function validateCardImgBack(ele) {
         greenAlertBox('请上传正确格式证件照')
         return false;
     } else {
-        if (((ele.files[0].size).toFixed(2)) >= (2 * 1024 * 1024)) {
+        if (((ele.files[0].size).toFixed(2)) >= (5 * 1024 * 1024)) {
             // alert('请上传小于5M的图片')
             greenAlertBox('请上传小于2M的图片')
             return false;
@@ -93,13 +128,28 @@ function validateCardImgBack(ele) {
 
             //为文件读取成功设置事件
             reader.onload = function (e) {
-                // alert('文件读取完成');
-                localStorage.setItem("user.cardImgBack.name", file.name);
-                localStorage.setItem("user.cardImgBack.type", file.type);
-                localStorage.setItem("user.cardImgBack.result", e.target.result);
-
-                //console.log(cardImgFront);
                 $("#cardImgBack_img").attr('src', e.target.result);
+                var formData = new FormData();
+                formData.append("file",file);
+                //压缩后异步上传
+                $.ajax({
+                    url : BASEURL + "/user/file/upload",
+                    type: "POST",
+                    data : formData,
+                    processData: false,
+                    contentType: false,
+                    crossDomain: true == !(document.all),
+                    success : function(data) {
+                        if(data.returnCode == '200'){
+                           cardImgBack =  data.data;
+                           return true;
+                        }
+                        greenAlertBox("文件上传失败:"+ data.returnMessage);
+                    },
+                    error : function(){
+                        greenAlertBox("文件上传失败！");
+                    }
+                });
             };
             reader.readAsDataURL(file);
             //uploadFile(file);
@@ -107,11 +157,11 @@ function validateCardImgBack(ele) {
     }
 }
 
-/*
-function uploadFile() {
+
+function uploadFile(file) {
 
     var formData = new FormData();
-    formData.append("file",storageFile);
+    formData.append("file",file);
     //压缩后异步上传
     $.ajax({
         url : BASEURL + "/user/file/upload",
@@ -121,10 +171,13 @@ function uploadFile() {
         contentType: false,
         crossDomain: true == !(document.all),
         success : function(data) {
-            attr = data;
+            if(data.returnCode == '200'){
+                return data.data;
+            }
+            greenAlertBox("文件上传失败:"+ data.returnMessage);
         },
         error : function(){
             greenAlertBox("文件上传失败！");
         }
     });
-}*/
+}

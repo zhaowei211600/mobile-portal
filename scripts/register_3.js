@@ -21,7 +21,7 @@ $(function () {
             return false;
         }
 
-        var frontFileName = localStorage.getItem("user.cardImgFront.name");
+        /*var frontFileName = localStorage.getItem("user.cardImgFront.name");
         var frontFileType = localStorage.getItem("user.cardImgFront.type");
         var frontFileContent = localStorage.getItem("user.cardImgFront.result");
         var cardImgFrontFile = new File([frontFileContent],frontFileName, {"type":""+frontFileType+""});
@@ -29,10 +29,10 @@ $(function () {
         var backFileName = localStorage.getItem("user.cardImgBack.name");
         var backFileType = localStorage.getItem("user.cardImgBack.type");
         var backFileContent = localStorage.getItem("user.cardImgBack.result");
-        var cardImgBackFile = new File([backFileContent],backFileName, {"type":""+backFileType+""});
+        var cardImgBackFile = new File([backFileContent],backFileName, {"type":""+backFileType+""});*/
         var form = new FormData();
-        form.append("cardImgBack", cardImgBackFile);
-        form.append("cardImgFront", cardImgFrontFile);
+        form.append("cardImgBack", cardImgBack);
+        form.append("cardImgFront", cardImgFront);
         form.append("phone", phone);
         form.append("password", password);
         form.append("messageCode", messageCode);
