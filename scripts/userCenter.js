@@ -141,5 +141,21 @@ $(function () {
         });
     }
 
+    $.ajax({
+        url: BASEURL + "/order/stat",
+        type: "post",
+        crossDomain: true == !(document.all),
+        success: function (resultData) {
+            if (resultData.returnCode == 200) {
+                if (resultData.data != null) {
+                    $("#totalCount").html("("+resultData.data.totalCount+")");
+                    $("#finishAmount").html("¥"+resultData.data.finishAmount);
+                }
+            }
+            return false;
+        },
+        complete: function () {
+        }
+    });
 
 });
