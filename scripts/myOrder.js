@@ -76,6 +76,8 @@ var orderList = {
                             status = '待验收';
                         }else if(item.status == '4'){
                             status = '已验收';
+                        }else if(item.status == '4'){
+                            status = '抢单失败';
                         }
                         dataHTML +=
                             "<li>" +

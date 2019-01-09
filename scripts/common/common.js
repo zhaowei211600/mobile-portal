@@ -1,5 +1,6 @@
 //通用环境
 var BASEURL = 'http://127.0.0.1:8080';
+//var BASEURL = 'http://39.106.157.230:10002';
 
 var code;
 // var tokenString = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6NjMsImV4cCI6MTUxNzk3NDA4NCwic3ViIjoiMTUwMDEwOTQzMjAiLCJleHBpcmVkIjoxNTE3OTc0MDg0MjY1LCJjcmVhdGVkIjoxNTE3OTcwNDg0MjY1fQ.NuZX9SSaqVZPiSFyT4RkunaT3HUEDT6vIZ7vIhu6PfOt4w2m74Sq7gZaThoT-7ZoavdCkMjPKdVr_xhhk98nIw";
