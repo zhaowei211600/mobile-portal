@@ -140,5 +140,8 @@ var orderList = {
         $(".user_center").click(function () {
             window.location.href = "../pages/userCenter.html";
         });
+        $("#find_product").click(function () {
+            window.location.href = "../pages/home.html";
+        });
     }
 })();
