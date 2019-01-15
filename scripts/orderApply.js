@@ -56,7 +56,6 @@ $(function () {
 
 $(function () {
     $("#applyDelivery").click(function () {
-        alert($("#deliveryDesc").val());
         param.deliveryDesc = $("#deliveryDesc").val();
         $.ajax({
             url: BASEURL + "/product/apply?productId="+param['productId'],

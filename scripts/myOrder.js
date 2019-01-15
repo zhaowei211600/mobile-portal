@@ -130,7 +130,7 @@ var orderList = {
     orderList.init();
 
     if(!$.cookie('Authorization')){
-        greenAlertBox("令牌已失效,请重新登录");
+        greenAlertBox("未登录，需登录后查看");
         setTimeout("window.location.href = '../pages/login.html'", 1500);
     }else{
         //点击菜单跳转

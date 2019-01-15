@@ -78,7 +78,7 @@ var walletList = {
                             "<td colspan='2'>" + item.productId + "</td>" +
                             "</tr>" +
                             "<tr>" +
-                            "<td colspan='2'>¥" + item.realCost + "</td>" +
+                            "<td colspan='2' style='color: red'>¥" + item.realCost + "</td>" +
                             "<td colspan='2'>" + item.realDeliveryTime + "</td>" +
                             "</tr>" +
                             "</table>" +

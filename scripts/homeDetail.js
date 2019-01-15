@@ -59,21 +59,26 @@ $(function () {
     });
 
     $("#confirmOrder").click(function () {
-        $.ajax({
-            url: BASEURL + "/order/confirm?productId="+param['productId'],
-            data: JSON.stringify(param),
-            type: "post",
-            dataType: "json",
-            contentType: "application/json",
-            success: function(result) {
-                if (result.returnCode == "200") {
-                    greenAlertBox("下单成功！");
-                    window.location.href = '../pages/myOrder.html';
-                }else{
-                    var errorMessage = result.returnMessage || '下单失败！';
-                    greenAlertBox(errorMessage);
+        if(!$.cookie('Authorization')){
+            greenAlertBox("未登录，需登录后查看");
+            setTimeout("window.location.href = '../pages/login.html'", 1500);
+        }else{
+            $.ajax({
+                url: BASEURL + "/order/confirm?productId="+param['productId'],
+                data: JSON.stringify(param),
+                type: "post",
+                dataType: "json",
+                contentType: "application/json",
+                success: function(result) {
+                    if (result.returnCode == "200") {
+                        greenAlertBox("下单成功！");
+                        window.location.href = '../pages/myOrder.html';
+                    }else{
+                        var errorMessage = result.returnMessage || '下单失败！';
+                        greenAlertBox(errorMessage);
+                    }
                 }
-            }
-        })
+            });
+        }
     });
 });

@@ -82,14 +82,11 @@ var walletList = {
                     $(".content-wrap .content-body").show();
                     $(".content-wrap .data-empty").hide();
                     var dataHTML = "";
-                    var emailStatus = "";
-                    var monitorStatusHTML = "";
-                    var checkStatus = "";
 
                     // 将 返回数据中每一项下的checkInvoice属性扩展到该项后面
                     mapData.forEach(function (item, index, array) {
                         dataHTML +=
-                            "<li style=\"margin-bottom: 10px;margin-top: 0;padding: 10px 15px;border: none;\" onclick='showDetail("+item.id+")'>" +
+                            "<li style=\"margin-bottom: 10px;margin-top: 0;padding: 10px 15px;border: none;background: white;\" onclick='showDetail("+item.id+")'>" +
                             "                <div>" +
                             "                    <div style=\"font-size: 16px;\">\n" +
                             "                        "+item.name+"<span style=\"font-size: 12px;color: #999999;float: right;\">"+item.createTime+"</span>" +
@@ -105,25 +102,7 @@ var walletList = {
                             "                        <div>期望交付时间：<span>"+item.expectDeliveryTime+"</span></div>\n" +
                             "                    </div>\n" +
                             "                </div>\n" +
-                            "            </li>"
-                            /*"<li>" +
-                            "<table>" +
-                            "<tr class='standard'>" +
-                            "<td colspan='2'>" + item.name + "</td>" +
-                            "<td colspan='2'>" + item.createTime + "</td>" +
-                            "</tr>" +
-                            "<tr>" +
-                            "<td colspan='4'>¥" + item.budget + "</td>" +
-                            "</tr>" +
-                            "<tr>" +
-                            "<td colspan='4'>" + item.desc + "</td>" +
-                            "</tr>" +
-                            "<tr class='standard'>" +
-                            "<td colspan='2'>工期:" + item.period + "</td>" +
-                            "<td colspan='2'>期望交付时间:" + item.expectDeliveryTime + "</td>" +
-                            "</tr>" +
-                            "</table>" +
-                            "</li>"*/;
+                            "            </li>";
                     });
                     $(".content-body ul").append(dataHTML);
                     if($(".content-body ul").children().length < data.total){
