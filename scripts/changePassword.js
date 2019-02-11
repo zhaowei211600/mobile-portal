@@ -77,7 +77,7 @@ $(function () {
 
     //密码正则
     function checkPassword(password) {
-        reg=/^(?![0-9]+$)(?![a-zA-Z]+$)[A-Za-z0-9]{8,16}$/;
+        reg=/^(?![0-9]+$)(?![a-zA-Z]+$)[A-Za-z0-9]{6,8}$/;
         // reg=/^(?![0-9]+$)(?![a-zA-Z]+$)[A-Za-z0-9\!\.\@\#\$\%\^\&\*\(\)\[\]\\?\\\/\|\-~`\+\=\,\r\n\:\'\"]{8,16}$/;
         if(!reg.test(password)){
             return false

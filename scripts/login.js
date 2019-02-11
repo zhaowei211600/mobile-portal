@@ -88,7 +88,7 @@ function getjson(phone,password) {
 }
 //密码正则
 function checkPassword(password) {
-    var reg=/^(?![0-9]+$)(?![a-zA-Z]+$)[A-Za-z0-9\!\.\@\#\$\%\^\&\*\(\)\[\]\\?\\\/\|\-~`\+\=\,\r\n\:\'\"]{8,16}$/;
+    var reg=/^(?![0-9]+$)(?![a-zA-Z]+$)[A-Za-z0-9\!\.\@\#\$\%\^\&\*\(\)\[\]\\?\\\/\|\-~`\+\=\,\r\n\:\'\"]{6,16}$/;
     if(!reg.test(password)){
         return false
     }else{

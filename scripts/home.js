@@ -133,7 +133,12 @@ var walletList = {
 };
 
 +(function(){
-    walletList.init();
+    if(!$.cookie('Authorization')){
+        greenAlertBox("未登录，需登录后查看");
+        setTimeout("window.location.href = '../pages/login.html'", 1500);
+    }else{
+        walletList.init();
+    }
 })();
 
 function showDetail(id){

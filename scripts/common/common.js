@@ -1,6 +1,10 @@
 //通用环境
-var BASEURL = 'http://127.0.0.1:10002';
+//var BASEURL = 'http://127.0.0.1:10002';
 //var BASEURL = 'http://39.106.157.230:10002';
+//var BASEURL = 'http://118.190.146.125:10002';
+var BASEURL = 'http://zhaobangshou.com.cn/backmobile';
+
+
 
 var code;
 // var tokenString = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpZCI6NjMsImV4cCI6MTUxNzk3NDA4NCwic3ViIjoiMTUwMDEwOTQzMjAiLCJleHBpcmVkIjoxNTE3OTc0MDg0MjY1LCJjcmVhdGVkIjoxNTE3OTcwNDg0MjY1fQ.NuZX9SSaqVZPiSFyT4RkunaT3HUEDT6vIZ7vIhu6PfOt4w2m74Sq7gZaThoT-7ZoavdCkMjPKdVr_xhhk98nIw";
@@ -77,7 +81,6 @@ $(function () {
         }
     });*/
 
-
     //点击菜单跳转
     $(".home").click(function () {
         window.location.href = "../pages/home.html";
@@ -132,7 +135,7 @@ $(function () {
             if(!XMLHttpRequest.responseJSON == undefined || !XMLHttpRequest.responseJSON == null || !XMLHttpRequest.responseJSON == ""){
                 if(XMLHttpRequest.responseJSON.returnCode == "11001" || XMLHttpRequest.responseJSON.returnMessage == "token丢失或错误"){
                     document.cookie = "Authorization=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
-                    greenAlertBox("令牌已失效,请重新登录")
+                    greenAlertBox("未登录，需登录后查看")
                     setTimeout("window.location.href = '../pages/login.html'", 1500);
                     $('.loadingBlue').remove()
                 }
