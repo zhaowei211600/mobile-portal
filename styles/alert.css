@@ -1,0 +1,79 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	height: 100%;
+	font-size: 12px;
+}
+
+.shadow {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	position: absolute;
+	top: 0;
+	z-index: 99;
+}
+
+.newAlert {
+	width: 100%;
+	text-align: center;
+	height: 125px;
+	overflow: hidden;
+	background: #FFFFFF;
+	padding-bottom: 25px;
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 20%;
+}
+
+.newAlert p {
+	text-align: left;
+	width: 80%;
+	margin-left: 10%;
+	line-height: 40px;
+}
+
+.newAlert input {
+	width: 80%;
+	height: 30px;
+	border: none;
+	border: 1px solid #666;
+	border-radius: 4px;
+}
+
+.buttonBox {
+	width: 80%;
+	height: auto;
+	padding-top: 20px;
+	overflow: hidden;
+	text-align: right;
+	margin: 0 auto;
+}
+
+.newAlert button {
+	width: 60px;
+	height: 30px;
+	border: none;
+	font-size: 10px;
+	margin-left: 15px;
+	background: #FFFFFF;
+	border-radius: 4px;
+	color: #FFFFFF;
+	border: 1px solid #666;
+	float: right;
+}
+
+button.cancel {
+	color: #333;
+}
+
+button.sure {
+	background: #0079CC;
+	border: 1px solid #0079cc;
+}

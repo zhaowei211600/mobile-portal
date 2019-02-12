@@ -176,7 +176,7 @@ function checkPhone(phone) {
 
 //密码正则
 function checkPassword(password) {
-    var reg=/^(?![0-9]+$)(?![a-zA-Z]+$)[A-Za-z0-9]{8,16}$/;
+    var reg=/^(?![0-9]+$)(?![a-zA-Z]+$)[A-Za-z0-9]{6,16}$/;
     // var reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[A-Za-z0-9\!\.\@\#\$\%\^\&\*\(\)\[\]\\?\\\/\|\-~`\+\=\,\r\n\:\'\"]{8,16}$/;
     if (!reg.test(password)) {
         return false
@@ -220,6 +220,17 @@ function chinaNameCheck(name) {
         return true
     }
 }
+
+function amountCheck(amount) {
+    var isAmountCheck = /^\+?[1-9][0-9]*$/;
+    if (!isAmountCheck.test(amount)) {
+        return false
+    } else {
+        return true
+    }
+}
+
+
 
 //倒计时方法
 function countDown(obj) {

@@ -11,9 +11,54 @@ function GetRequest() {
     }
     return theRequest;
 }
+var param = GetRequest();
+
+/*alertHtml*/
+var alertHtml = '<div class="shadow shadowAlert">'+
+    '<div class="newAlert">'+
+    '<p>请输入期望金额</p>'+
+    '<input type="text" name="expectCost" id="expectCost" value="" autocomplete="off"/>'+
+    '<div class="buttonBox">'+
+    '<button class="sure" id="sure" onclick="submitMoney()">确认</button>'+
+    '<button class="cancel" id="cancel" onclick="removeAlert()">取消</button>'+
+    '</div>'+
+    '</div>'+
+    '</div>';
+/*显示弹窗*/
+function newAlert(){
+    $(alertHtml).appendTo("body");
+};
+/*关闭弹窗*/
+function removeAlert(){
+    $('.shadowAlert').remove();
+}
+/*确认按钮*/
+function submitMoney(){
+    var amount = $("#expectCost").val();
+    if(!amountCheck(amount)){
+        greenAlertBox("请输入正确的金额");
+        return;
+    }
+    $.ajax({
+        url: BASEURL + "/order/confirm?productId="+param['productId']+"&amount="+amount,
+        data: JSON.stringify(param),
+        type: "post",
+        dataType: "json",
+        contentType: "application/json",
+        success: function(result) {
+            if (result.returnCode == "200") {
+                greenAlertBox("下单成功！");
+                window.location.href = '../pages/myOrder.html';
+            }else{
+                var errorMessage = result.returnMessage || '下单失败！';
+                greenAlertBox(errorMessage);
+            }
+        }
+    });
+    removeAlert();
+}
 
 $(function () {
-    var param = GetRequest();
     $.ajax({
         url: BASEURL + "/product/find?productId="+param['productId'],
         data: JSON.stringify(param),
@@ -63,22 +108,9 @@ $(function () {
             greenAlertBox("未登录，需登录后查看");
             setTimeout("window.location.href = '../pages/login.html'", 1500);
         }else{
-            $.ajax({
-                url: BASEURL + "/order/confirm?productId="+param['productId'],
-                data: JSON.stringify(param),
-                type: "post",
-                dataType: "json",
-                contentType: "application/json",
-                success: function(result) {
-                    if (result.returnCode == "200") {
-                        greenAlertBox("下单成功！");
-                        window.location.href = '../pages/myOrder.html';
-                    }else{
-                        var errorMessage = result.returnMessage || '下单失败！';
-                        greenAlertBox(errorMessage);
-                    }
-                }
-            });
+           newAlert();
         }
     });
+
+
 });
