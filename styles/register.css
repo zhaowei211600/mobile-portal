@@ -240,3 +240,10 @@ input:-ms-input-placeholder { /* Internet Explorer 10+ */
 .ju{
     color: rgb(247,105,106)
 }
+.imageCode{
+    float: right;
+    margin-top: -0.5rem;
+    margin-right: 4%;
+    width: 24%;
+    height: 3rem;
+}

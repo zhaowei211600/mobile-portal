@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>订单详情页</title>
+    <link rel="stylesheet" href="./styles/common/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./styles/font/iconfont.css">
+    <link rel="stylesheet" href="./styles/common/common.css" />
+    <link rel="stylesheet" href="./styles/home.css" />
+    <link rel="stylesheet" href="./styles/alert.css" />
+
+</head>
+<body>
+<!--顶部导航搜索-->
+<div>
+    <div class="search-bar">
+        订单详情
+    </div>
+    <a href="./myOrder.html" class="s-back"><i class="iconfont icon-fanhuizuojiantou"></i></a>
+</div>
+
+<div class="home-detail-head" style="margin-top: 10px;" >
+    <div class="leftright">
+        <div class="ft ac" style="width: 100%;" id="productName"></div>
+    </div>
+    <div class="leftright">
+        <div>发布时间：<span id="publishTime"></span></div>
+    </div>
+    <div class="leftrightL" >
+        <div>预算：<span class="red" id="budget"></span></div>
+        <!--<div class="order-leftright" id="status"></div>-->
+    </div>
+    <div class="leftright">
+        <div>联系方式：<span id="contactPhone"></span></div>
+    </div>
+    <div class="leftright">
+        <div>期望交付时间：<span id="expectDeliveryTime"></span></div>
+    </div>
+    <div class="leftright">
+        <div class="detail-detail-head" >项目描述：</div>
+    </div>
+    <div class="leftright" style="line-height: 20px;">
+        <div id="desc"></div>
+    </div>
+</div>
+
+<div class="detail-detail">
+    <div class="ft detail-detail-title">验收记录</div>
+    <div class="content-body">
+        <ul>
+
+
+        </ul>
+    </div>
+
+</div>
+
+<div class="acceptBtnStyle" id="apply" onclick="newAlert()">申请验收</div>
+
+<div class="shadow order" id="box" style="display: none;">
+    <div class="newAlert">
+        <div class="box-title ft">温馨提示</div>
+        <img class="box-image" onclick="removeAlert()" src="./styles/images/guanbi.png"/>
+        <div class="box-con">请通过电脑端打开链接<br/>
+            <a  href="http://www.zhaobangshou.net.cn">www.zhaobangshou.net.cn</a><br/>
+            <br/>
+            完成验收申请提交</div>
+        <div class="box-btn" id="share" onclick="submitMoney()">复制链接</div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="./scripts/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./scripts/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="./scripts/common/jquery.cookie.js"></script>
+<script type="text/javascript" src="./scripts/common/common.js"></script>
+<script type="text/javascript" src="./scripts/lib/clipboard.min.js"></script>
+<script type="text/javascript" src="./scripts/orderDetail.js"></script>
+
+
+</body>
+</html>

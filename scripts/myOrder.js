@@ -71,29 +71,28 @@ var orderList = {
                         if(item.status == '1'){
                             status = '待确认';
                         }else if(item.status == '2'){
-                            status = '已接单';
+                            status = '进行中';
                         }else if(item.status == '3'){
-                            status = '待验收';
-                        }else if(item.status == '4'){
-                            status = '已验收';
-                        }else if(item.status == '4'){
-                            status = '抢单失败';
+                            status = '已结束';
                         }
                         dataHTML +=
                             "<li>" +
                             "<table>" +
                             "<tr class='standard'>" +
-                            "<td colspan='4'>" + item.productName + "</td>" +
+                            " <td colspan='2'>项目名称</td>"+
+                            "<td colspan='3'>" + item.productName + "</td>" +
                             "</tr>" +
                             "<tr>" +
-                            "<td colspan='2'>¥" + item.budget + "</td>" +
+                            "<td colspan='2'>状态</td>" +
                             "<td colspan='2'>" + status + "</td>" +
+                            "<td colspan='1' class='ar'>详情</td>" +
                             "</tr>" +
                             "<tr>" +
-                            "<td colspan='4'>¥" + item.createTime + "</td>" +
+                            "<td colspan='2'>申请时间</td>"+
+                            "<td colspan='3'>" + item.createTime + "</td>" +
                             "</tr>" +
                             "</table>" +
-                            "<a href='../pages/order-detail.html?productId=" + item.productId + "' class='ticket-info'>" +
+                            "<a href='./order-detail.html?productId=" + item.productId + "&orderId="+ item.id +"' class='ticket-info'>" +
                             "<i class='iconfont icon-youjiantou'></i>" +
                             "</a>" +
                             "</li>";
@@ -131,17 +130,17 @@ var orderList = {
 
     if(!$.cookie('Authorization')){
         greenAlertBox("未登录，需登录后查看");
-        setTimeout("window.location.href = '../pages/login.html'", 1500);
+        setTimeout("window.location.href = './login.html'", 1500);
     }else{
         //点击菜单跳转
         $(".home").click(function () {
-            window.location.href = "../pages/home.html";
+            window.location.href = "./home.html";
         });
         $(".user_center").click(function () {
-            window.location.href = "../pages/userCenter.html";
+            window.location.href = "./userCenter.html";
         });
         $("#find_product").click(function () {
-            window.location.href = "../pages/home.html";
+            window.location.href = "./home.html";
         });
     }
 })();

@@ -45,6 +45,14 @@ body{
     margin-top: 50px;
     margin-bottom: 10px;
 }
+.apply_delivery{
+    padding: 0 15px 10px;
+    font-size: 12px;
+    align-items: baseline;
+    line-height: 35px;
+    background-color: #fff;
+    margin: 5px 0;
+}
 .red{
     color: red;
 }
@@ -54,14 +62,22 @@ body{
     justify-content: space-around;
     text-align: center;
     margin-top: 40px;
+    margin-bottom: 60px;
+}
+.footer .acceptBtnStyle{
+    position: relative;
+    width: 50%;
 }
 .acceptBtnStyle{
     height: 40px;
     line-height: 40px;
-    background-color: #0080CC;
+    background-color: red;
     color: #ffffff;
-    width: 50%;
+    width: 100%;
     font-size: 16px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
 }
 
 
@@ -88,10 +104,12 @@ body{
     font-size: 16px;
 }
 .detail-detail{
+    margin-bottom: 50px;
     background-color: #ffffff;padding: 0 15px 20px;
 }
+
 .detail-detail-head{
-    font-size: 16px;    line-height: 30px;margin-bottom: 5px;
+    line-height: 20px;margin-bottom: 5px;
 }
 .col99{
     color: #999999;
@@ -101,4 +119,33 @@ body{
 }
 .order-leftright{
     margin-left: 35px;
+}
+.detail-detail-title{
+    font-size: 14px;
+    line-height: 40px;
+    border-bottom: 1px solid #f4f4f4;
+    background-color: #ffffff;
+    padding: 0 15px;
+}
+
+.detail-detail .content-body li{
+    padding: 10px 15px;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+}
+.detail-detail .content-body table{
+    width: 100%;
+    font-size: 12px;
+    color: #495060;
+
+}
+.detail-detail .content-body table tr{
+    height: 28px;
+    line-height: 28px;
+    vertical-align: top;
+
+}
+
+.detail-detail .content-body table td:nth-child(2){
+    width: 12.5rem;
 }

@@ -36,7 +36,7 @@ $("#register_next").click(function () {
     localStorage.setItem("user.realName", realName);
     localStorage.setItem("user.cardNo", cardNo);
     loadingBlue()
-    window.location.href = '../pages/register_2.html';
+    window.location.href = './register_2.html';
 });
 
 /*function checkRealName(realName) {

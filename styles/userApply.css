@@ -49,11 +49,12 @@
     border: 1px solid #DDDEE1;
     box-shadow: 0 1px 4px 0 rgba(0,0,0,0.05);
     text-align: center;
+    position: relative;
 }
 .wrap-companyImg img{
     position: absolute;
     left: 8.3%;
-    top: 24.6rem;
+    top:0;
     width: 84%;
     height: 18.9rem;
     z-index: 1;
@@ -70,7 +71,7 @@
     opacity: 0;
     position: relative;
     left: 0;
-    top: -0.2rem;
+    top: -6.2rem;
     z-index: 2;
     cursor: pointer;
 }

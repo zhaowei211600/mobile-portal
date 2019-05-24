@@ -2,10 +2,10 @@
 $(function () {
 
         $("#myWallet").click(function () {
-            window.location.href = "../pages/myWallet.html";
+            window.location.href = "./myWallet.html";
         });
         $("#changePassword").click(function () {
-            window.location.href = "../pages/changePassword.html";
+            window.location.href = "./changePassword.html";
         });
         $(".wrap-btn-quit").click(function () {
             loadingBlue()
@@ -67,7 +67,7 @@ var walletList = {
     query: function(){
         var _this = this;
         //只显示待接单
-        _this.params.status = 1;
+        //_this.params.status = 1;
         $.ajax({
             url: BASEURL + "/product/list",
             data: JSON.stringify(_this.params),
@@ -135,12 +135,12 @@ var walletList = {
 +(function(){
     if(!$.cookie('Authorization')){
         greenAlertBox("未登录，需登录后查看");
-        setTimeout("window.location.href = '../pages/login.html'", 1500);
+        setTimeout("window.location.href = './login.html'", 1500);
     }else{
         walletList.init();
     }
 })();
 
 function showDetail(id){
-    window.location.href = '../pages/home-detail.html?productId='+id;
+    window.location.href = './home-detail.html?productId='+id;
 }

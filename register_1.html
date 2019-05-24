@@ -2,39 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>用户注册</title>
 
-    <link rel="stylesheet" href="../styles/common/common.css" />
-    <link rel="stylesheet" href="../styles/lib/swiper.css" />
-    <link rel="stylesheet" href="../styles/register.css" />
-    <link rel="stylesheet" href="../styles/userApply.css" />
-    <link rel="stylesheet" type="text/css" href="../styles/font/iconfont.css">
-    <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="./styles/common/common.css"/>
+    <link rel="stylesheet" href="./styles/lib/swiper.css"/>
+    <link rel="stylesheet" href="./styles/register.css"/>
+    <link rel="stylesheet" href="./styles/userApply.css"/>
+    <link rel="stylesheet" type="text/css" href="./styles/font/iconfont.css">
+    <link rel="stylesheet" href="./styles/home.css">
     <style type="text/css">
-        .wrap-register{
+        .wrap-register {
             width: 84%;
             height: 18.9rem;
             margin: 2rem 8%;
             background: #FFFFFF;
             border: 1px solid #DDDEE1;
-            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.05);
+            box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
             text-align: center;
         }
-        .wrap-register img{
+
+        .wrap-register img {
             position: absolute;
             left: 8.3%;
             width: 84%;
             height: 18.9rem;
             z-index: 1;
         }
+
         .wrap-register p {
             display: block;
             position: relative;
             left: 0;
             top: -19rem;
         }
-        .wrap-register input{
+
+        .wrap-register input {
             width: 100%;
             height: 100%;
             opacity: 0;
@@ -53,7 +57,7 @@
         <div class="search-bar" style="background-color: #F8F8F9;">
             注册
         </div>
-        <a href="../pages/login.html" class="s-back"><i class="iconfont icon-fanhuizuojiantou"></i></a>
+        <a href="./login.html" class="s-back"><i class="iconfont icon-fanhuizuojiantou"></i></a>
     </div>
     <div style="text-align: center;line-height: 30px;">
         <span class="ju">1.实名认证</span><span> > 2.手机验证 > 3.设置密码</span>
@@ -63,18 +67,20 @@
         <div class="warp-main">
             <div>
                 <span class="warp-main-span">真实姓名</span>
-                <input type="text" placeholder="请填写真实姓名" id="realName" maxlength="8" class="warp-main-input warp-main-password">
+                <input type="text" placeholder="请填写真实姓名" id="realName" maxlength="8"
+                       class="warp-main-input warp-main-password">
             </div>
             <div>
                 <p class="warp-main-hr"></p>
                 <span class="warp-main-span">证件号码</span>
-                <input type="text" placeholder="请填写证件号码" id="cardNo" maxlength="30" class="warp-main-input warp-main-password">
+                <input type="text" placeholder="请填写证件号码" id="cardNo" maxlength="30"
+                       class="warp-main-input warp-main-password">
             </div>
             <p class="warp-main-hr"></p>
             <div class="wrap-register">
                 <!--<div class="iconfont icon-jiahao"></div>-->
                 <img id="cardImgFront_img" src="" alt="">
-                <input type="file" id="cardImgFront" name="file" onchange="Javascript:validateCardImgFront(this);" >
+                <input type="file" id="cardImgFront" name="file" onchange="Javascript:validateCardImgFront(this);">
                 <p class="wrap-companyCard">选择身份证正面照</p>
                 <p class="wrap-2m">文件支持：jpg/jpeg/png格式图片，不超过2M</p>
             </div>
@@ -82,20 +88,20 @@
             <div class="wrap-register">
                 <!--<div class="iconfont icon-jiahao"></div>-->
                 <img id="cardImgBack_img" src="" alt="">
-                <input type="file" id="cardImgBack" name="file" onchange="Javascript:validateCardImgBack(this);" >
+                <input type="file" id="cardImgBack" name="file" onchange="Javascript:validateCardImgBack(this);">
                 <p class="wrap-companyCard">选择身份证反面照</p>
                 <p class="wrap-2m">文件支持：jpg/jpeg/png格式图片，不超过2M</p>
             </div>
             <button class="login-btn" id="register_next">下一步</button>
-            <p class="fs12"><span style="color: blue;">《用户注册协议》</span>点击下一步视为同意相关注册协议，可查看详情</p>
+            <p class="fs12"><a href="network-agreeent.html" style="color: blue;">《网络交易协议》</a><a href="private-agreement.html" style="color: blue;">《隐私保护协议》</a><a href="platform-agreement.html" style="color: blue;">《平台服务协议》</a>点击下一步视为同意相关注册协议，可查看详情</p>
         </div>
 
     </div>
 </div>
-<script type="text/javascript" src="../scripts/lib/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="../scripts/lib/slider.js"></script>
-<script type="text/javascript" src="../scripts/common/jquery.cookie.js"></script>
-<script type="text/javascript" src="../scripts/common/common.js"></script>
-<script type="text/javascript" src="../scripts/register_1.js"></script>
+<script type="text/javascript" src="./scripts/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./scripts/lib/slider.js"></script>
+<script type="text/javascript" src="./scripts/common/jquery.cookie.js"></script>
+<script type="text/javascript" src="./scripts/common/common.js"></script>
+<script type="text/javascript" src="./scripts/register_1.js"></script>
 </body>
 </html>

@@ -18,7 +18,7 @@ $(function () {
         localStorage.setItem("user.phone", phone);
         localStorage.setItem("user.messageCode", captcha);
         loadingBlue()
-        window.location.href = '../pages/register_3.html';
+        window.location.href = './register_3.html';
 
     });
 
@@ -42,11 +42,13 @@ $(function () {
 
     //校验手机短信验证码
     function getyzm(phone) {
-        jsondata = {"phone":phone,"type":1};
+        //imageCode = $('#imageCode').val();
+        jsondata = {"phone":phone,"imageCode":""};
+
         $.ajax(
             {
-                url: BASEURL +"/user/verification",
-                type:"post",
+                url: BASEURL +"/code/message",
+                type:"get",
                 dataType:"json",
                 // data:JSON.stringify(jsondata),
                 // contentType:'application/json',
@@ -54,9 +56,9 @@ $(function () {
                 contentType: 'application/x-www-form-urlencoded;charset=utf-8',
                 success:function (data) {
                     if(data.returnCode == 200 ){
-                        $("#btn-yzm").attr("disabled", true);
+
                         greenAlertBox('验证码发送成功！');
-                        countDown(60);
+                        countDown($("#btn-yzm"));
                     }else if(data.returnCode == 10003 ){
                         greenAlertBox("该手机号已经注册！");
                     }else {
@@ -81,29 +83,27 @@ $(function () {
     //获取手机验证码倒计时
     function countDown(timeLeft) {
         var timeId = 0;
-        $(function (){
-            timeId = setInterval(function () {
-                if(timeLeft <= 0){
-                    clearInterval(timeId);
-                    $("#btn-yzm").text("发送验证码");
-                    $("#btn-yzm").attr("disabled", false);
-                    $("#btn-yzm").css({
-                        "border-color":"#0080CC",
-                        "background":"#0080CC",
-                        "color":"#fff"
-                    })
-                }else {
-                    $("#btn-yzm").attr("disabled", true);
-                    $("#btn-yzm").text("( "+ timeLeft +" )秒");
-                    $("#btn-yzm").css({
-                        "border-color":"#E9EAEC",
-                        "background":"#E9EAEC",
-                        "color":"#fff"
-                    });
-                }
-                timeLeft--;
-            },1000);
-        });
+        timeId = setInterval(function () {
+            if(timeLeft <= 0){
+                clearInterval(timeId);
+                $("#btn-yzm").text("发送验证码");
+                $("#btn-yzm").attr("disabled", false);
+                $("#btn-yzm").css({
+                    "border-color":"#0080CC",
+                    "background":"#0080CC",
+                    "color":"#fff"
+                })
+            }else {
+                $("#btn-yzm").attr("disabled", true);
+                $("#btn-yzm").text("( "+ timeLeft +" )秒");
+                $("#btn-yzm").css({
+                    "border-color":"#E9EAEC",
+                    "background":"#E9EAEC",
+                    "color":"#fff"
+                });
+            }
+            timeLeft--;
+        },1000);
     }
 
 });

@@ -45,7 +45,7 @@ $(function () {
 
     //重新登录
     $(".login-href").click(function () {
-        window.location.href = "../pages/login.html"
+        window.location.href = "./login.html"
     });
 
 

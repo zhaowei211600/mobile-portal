@@ -13,25 +13,24 @@ function GetRequest() {
 }
 var param = GetRequest();
 $(function () {
-
+    var checkOrder = param['id'] || ''
     $.ajax({
-        url: BASEURL + "/product/find?productId="+param['productId'],
-        data: JSON.stringify(param),
+        url: BASEURL + "/check/order/detail?checkOrderId="+checkOrder+'&orderId=',
+        data:{},
         type: "post",
         dataType: "json",
         contentType: "application/json",
+        beforeSend: function(request) {
+            request.setRequestHeader("Authorization", getTokenString());
+        },
         success: function(result) {
             if (result.returnCode == "200") {
                 var status = '';
                 var data = result.data;
-                var deliveryStatus = '';
                 orderStatus = data.status;
-                $("#productName").html(data.name);
-                $("#budget").html("￥"+data.budget);
-                $("#expectDeliveryTime").html(data.expectDeliveryTime);
-                $("#publishTime").html(data.createTime);
-                $("#period").html(data.period);
-                $("#contactPhone").html(data.phone);
+                $("#createTime").html(data.createTime);
+                $('#finishDesc').html(data.finishDesc)
+                $('#auditDesc').val(data.auditDesc)
                 if(data.status == '1'){
                     status = '待接单';
                 }else if(data.status == '2'){
@@ -42,13 +41,35 @@ $(function () {
                     status = '已验收';
                 }
                 $("#status").html(status);
-                if(dateCompare(data.expectDeliveryTime)){
-                    deliveryStatus = '正常';
-                }else{
-                    deliveryStatus = '超期';
-                }
-                $("#deliveryStatus").html(deliveryStatus);
-                $("#deliveryTime").html(dateFormat(new Date()));
+
+
+            }else {
+                var message = result.returnMessage;
+                greenAlertBox(message);
+            }
+        }
+    })
+
+    var data = {
+        "checkOrderId":checkOrder,
+        "pageNum":1,
+        "pageSize":"20"
+    }
+    $.ajax({
+        url: BASEURL + "/attachment/order/list",
+        data: JSON.stringify(data),
+        type: "post",
+        dataType: "json",
+        contentType: "application/json",
+        success: function(result) {
+            if (result.returnCode == "200") {
+                var list =''
+
+                result.data.forEach(function (item,index) {
+                    list +='<div><a style="color: #0C4AEC;" href="\'+ BASEURL +\'/user/file/stream?fileName=\'+item.filePath+\'">'+item.fileName+'</a></div>'
+                })
+                $("#fujian").append(list)
+
             }
         }
     })
@@ -58,7 +79,7 @@ $(function () {
     $("#applyDelivery").click(function () {
         param.deliveryDesc = $("#deliveryDesc").val();
         $.ajax({
-            url: BASEURL + "/product/apply?productId="+param['productId'],
+            url: BASEURL + "/product/apply?productId="+param['productId'] + "&orderId="+ param['orderId'],
             data: JSON.stringify(param),
             type: "post",
             dataType: "json",
@@ -66,7 +87,11 @@ $(function () {
             success: function(result) {
                 if (result.returnCode == "200") {
                     greenAlertBox("申请成功，请等待审核！");
-                    window.location.href = '../pages/myOrder.html';
+                    window.location.href = './myOrder.html';
+                }else if(result.returnCode == "10008"){
+                    greenAlertBox("当前项目已关闭，无法提交验收");
+                }else{
+                    greenAlertBox(result.returnMessage);
                 }
             }
         })

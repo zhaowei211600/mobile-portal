@@ -4,7 +4,7 @@ $(function () {
     $('.loadingBlue').remove()
     //重新登录
     $(".login-href").click(function () {
-        window.location.href = "../pages/login.html"
+        window.location.href = "./login.html"
     });
 
     var jsondata,phone,phonecheck,password,password2,passcheck,captcha,phonecf,reg,buttonStatus;

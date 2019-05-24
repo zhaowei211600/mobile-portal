@@ -13,34 +13,20 @@ function GetRequest() {
 }
 var param = GetRequest();
 
-/*alertHtml*/
-var alertHtml = '<div class="shadow shadowAlert">'+
-    '<div class="newAlert">'+
-    '<p>请输入期望金额</p>'+
-    '<input type="text" name="expectCost" id="expectCost" value="" autocomplete="off"/>'+
-    '<div class="buttonBox">'+
-    '<button class="sure" id="sure" onclick="submitMoney()">确认</button>'+
-    '<button class="cancel" id="cancel" onclick="removeAlert()">取消</button>'+
-    '</div>'+
-    '</div>'+
-    '</div>';
+
 /*显示弹窗*/
 function newAlert(){
-    $(alertHtml).appendTo("body");
+    $('#box').show();
 };
 /*关闭弹窗*/
 function removeAlert(){
-    $('.shadowAlert').remove();
+    $('.shadow').hide();
 }
 /*确认按钮*/
 function submitMoney(){
-    var amount = $("#expectCost").val();
-    if(!amountCheck(amount)){
-        greenAlertBox("请输入正确的金额");
-        return;
-    }
+
     $.ajax({
-        url: BASEURL + "/order/confirm?productId="+param['productId']+"&amount="+amount,
+        url: BASEURL + "/order/confirm?productId="+param['productId']+"&amount=0.00",
         data: JSON.stringify(param),
         type: "post",
         dataType: "json",
@@ -48,7 +34,7 @@ function submitMoney(){
         success: function(result) {
             if (result.returnCode == "200") {
                 greenAlertBox("下单成功！");
-                window.location.href = '../pages/myOrder.html';
+                window.location.href = './myOrder.html';
             }else{
                 var errorMessage = result.returnMessage || '下单失败！';
                 greenAlertBox(errorMessage);
@@ -56,6 +42,9 @@ function submitMoney(){
         }
     });
     removeAlert();
+}
+function showCustomerBox() {
+    $('#customer').show()
 }
 
 $(function () {
@@ -80,9 +69,7 @@ $(function () {
                 }else if(data.status == '2'){
                     status = '进行中';
                 }else if(data.status == '3'){
-                    status = '待验收';
-                }else if(data.status == '4'){
-                    status = '已验收';
+                    status = '已结束';
                 }
                 $("#status").html(status);
 
@@ -106,7 +93,7 @@ $(function () {
     $("#confirmOrder").click(function () {
         if(!$.cookie('Authorization')){
             greenAlertBox("未登录，需登录后查看");
-            setTimeout("window.location.href = '../pages/login.html'", 1500);
+            setTimeout("window.location.href = './login.html'", 1500);
         }else{
            newAlert();
         }

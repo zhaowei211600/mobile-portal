@@ -124,16 +124,16 @@ $(function () {
 
     if(!$.cookie('Authorization')){
         greenAlertBox("未登录，需登录后查看");
-        setTimeout("window.location.href = '../pages/login.html'", 1500);
+        setTimeout("window.location.href = './login.html'", 1500);
     }else{
         $("#myWallet").click(function () {
-            window.location.href = "../pages/myWallet.html";
+            window.location.href = "./myWallet.html";
         });
         $("#changePassword").click(function () {
-            window.location.href = "../pages/changePassword.html";
+            window.location.href = "./changePassword.html";
         });
         $("#myOrder").click(function () {
-            window.location.href = "../pages/myOrder.html";
+            window.location.href = "./myOrder.html";
         });
         $(".wrap-btn-quit").click(function () {
             loadingBlue()

@@ -2,7 +2,8 @@
 //var BASEURL = 'http://127.0.0.1:10002';
 //var BASEURL = 'http://39.106.157.230:10002';
 //var BASEURL = 'http://118.190.146.125:10002';
-var BASEURL = 'http://zhaobangshou.com.cn/backmobile';
+//var BASEURL = 'http://zhaobangshou.com.cn/backmobile';
+var BASEURL = 'http://www.zhaobangshou.net.cn/backmobile';
 
 
 
@@ -83,13 +84,13 @@ $(function () {
 
     //点击菜单跳转
     $(".home").click(function () {
-        window.location.href = "../pages/home.html";
+        window.location.href = "./home.html";
     });
     $(".my_order").click(function () {
-        window.location.href = "../pages/myOrder.html";
+        window.location.href = "./myOrder.html";
     });
     $(".user_center").click(function () {
-        window.location.href = "../pages/userCenter.html";
+        window.location.href = "./userCenter.html";
     });
 
     //全局处理异常
@@ -136,7 +137,7 @@ $(function () {
                 if(XMLHttpRequest.responseJSON.returnCode == "11001" || XMLHttpRequest.responseJSON.returnMessage == "token丢失或错误"){
                     document.cookie = "Authorization=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
                     greenAlertBox("未登录，需登录后查看")
-                    setTimeout("window.location.href = '../pages/login.html'", 1500);
+                    setTimeout("window.location.href = './login.html'", 1500);
                     $('.loadingBlue').remove()
                 }
             }
@@ -330,7 +331,7 @@ function  exitSystem(){
             console.log(resultData);
             if (resultData.returnCode == '200') {
                 clearToken();
-                 window.location.href = '../pages/login.html'
+                 window.location.href = './login.html'
                 $('.loadingBlue').remove()
             } else {
             }

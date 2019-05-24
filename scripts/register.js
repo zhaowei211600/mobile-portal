@@ -4,7 +4,7 @@ var cardImgBack;
 $(function () {
     "use strict";
     $('.loadingBlue').remove()
-    var jsondata,phone,password,passcheck,phonecheck,captcha,reg,realName, cardNo;
+    var jsondata,phone,password,passcheck,phonecheck,captcha,reg,realName, cardNo,imageCode;
     $(".l-close, .agree").click(function () {
         $("#user-layer").hide();
     });
@@ -19,6 +19,7 @@ $(function () {
         captcha = $("#yzm").val();
         realName = $("#realName").val();
         cardNo = $("#cardNo").val();
+        imageCode = $('#imageCode').val()
 
         phonecheck = checkPhone(phone,1,passcheck,password,captcha);
         if(!phonecheck) {
@@ -39,6 +40,7 @@ $(function () {
         form.append("messageCode", captcha);
         form.append("cardNo", cardNo);
         form.append("realName", realName);
+        form.append('imageCode',imageCode)
 
 
         loadingBlue()
@@ -76,7 +78,7 @@ $(function () {
                 success:function (data) {
                     if(data.returnCode == 200 ){
                         greenAlertBox('注册成功，请登录');
-                        setTimeout('window.location.href = "../pages/login.html"',1000);
+                        setTimeout('window.location.href = "./login.html"',1000);
                         $('.loadingBlue').remove();
                     }else {
                         var message = data.returnMessage || '注册失败！';
@@ -90,11 +92,13 @@ $(function () {
 
     //校验手机短信验证码
     function getyzm(phone) {
-        jsondata = {"phone":phone,"type":1};
+        imageCode = $('#imageCode').val();
+        jsondata = {"phone":phone,"imageCode":imageCode};
+
         $.ajax(
             {
-                url: BASEURL +"/user/verification",
-                type:"post",
+                url: BASEURL +"/code/message",
+                type:"get",
                 dataType:"json",
                 // data:JSON.stringify(jsondata),
                 // contentType:'application/json',
@@ -102,9 +106,9 @@ $(function () {
                 contentType: 'application/x-www-form-urlencoded;charset=utf-8',
                 success:function (data) {
                     if(data.returnCode == 200 ){
-                        $("#btn-yzm").attr("disabled", true);
+
                         greenAlertBox('验证码发送成功！');
-                        countDown(60);
+                        countDown($("#btn-yzm"));
                     }else if(data.returnCode == 10003 ){
                         greenAlertBox("该手机号已经注册！");
                     }else {
@@ -250,3 +254,7 @@ function uploadFile(data) {
             }
         });
 }
+function getImageCode() {
+    $(".imageCode").attr('src',BASEURL+'/code/image?flag='+Math.random())
+}
+getImageCode()

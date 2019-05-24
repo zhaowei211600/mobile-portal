@@ -68,18 +68,28 @@ var walletList = {
                     var emailStatus = "";
                     var monitorStatusHTML = "";
                     var checkStatus = "";
+                    if(mapData.length > 3){
+                        $('#rectangle').addClass('rectangleFill')
+                    }
                     // 将 返回数据中每一项下的checkInvoice属性扩展到该项后面
                     mapData.forEach(function (item, index, array) {
                         dataHTML +=
                             "<li>" +
                             "<table>" +
+                            "<tr>" +
+                            "<td colspan='2' style='color: #979696;font-size: 12px;'>NO." + item.productId + "</td>" +
+                            "</tr>" +
                             "<tr class='standard'>" +
+                            "<td colspan='2'>项目名称</td>" +
                             "<td colspan='2'>" + item.name + "</td>" +
-                            "<td colspan='2'>" + item.productId + "</td>" +
                             "</tr>" +
                             "<tr>" +
+                            "<td colspan='2' >项目经费</td>" +
                             "<td colspan='2' style='color: red'>¥" + item.realCost + "</td>" +
-                            "<td colspan='2'>" + item.realDeliveryTime + "</td>" +
+                            "</tr>" +
+                            "<tr>" +
+                            "<td colspan='2'>结项时间</td>" +
+                            "<td colspan='2' style='color: #979696;'>" + item.realDeliveryTime + "</td>" +
                             "</tr>" +
                             "</table>" +
                             "</li>";
@@ -111,6 +121,15 @@ var walletList = {
         });
     }
 };
+
+/*显示弹窗*/
+function newAlert(){
+    $('.shadow').show();
+};
+/*关闭弹窗*/
+function removeAlert(){
+    $('.shadow').hide();
+}
 
 +(function(){
     walletList.init();

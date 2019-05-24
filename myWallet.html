@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="./styles/common/common.css" />
+    <link rel="stylesheet" href="./styles/order.css" />
+    <link rel="stylesheet" href="./styles/font/iconfont.css" />
+    <title>我的钱包</title>
+    <style type="text/css">
+        .rectangle {
+            position: absolute;
+            bottom: 0;
+            margin: auto;
+            left: 0;
+            right: 0;
+        }
+        .rectangleFill{
+            position: relative;
+            margin-top: 40px;
+        }
+        #rectangle a{
+            color: black;
+        }
+
+        #content-body ul li{
+            margin-top: 7px;
+            border: none;
+        }
+        .tip{
+            color: rgba(153, 148, 148, 1);
+            font-size: 14px;
+            text-align: center;
+        }
+        .btn{
+            width: 50%;
+            height: 3rem;
+            line-height: 3rem;
+            margin:20px auto;
+            border:1px solid rgba(229,28,35,1);
+            text-align: center;
+            background-color: #FFFFFF;
+        }
+        .shadow {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            position: fixed;
+            top: 0;
+            z-index: 99;
+        }
+
+        .newAlert {
+            width: 60%;
+            text-align: center;
+            height: 70px;
+            line-height: 70px;
+            overflow: hidden;
+            background: #FFFFFF;
+            position: fixed;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 40%;
+            color: blue;
+            font-size: 14px;
+        }
+        .content-wrap {
+            min-height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="content-wrap my-asset-i">
+    <!--顶部导航搜索-->
+    <div class="top-search">
+        <div class="search-bar">
+            <a href="./userCenter.html" class="s-back"><i class="iconfont icon-fanhuizuojiantou"></i>返回</a>
+        </div>
+    </div>
+    <!--数据空-->
+    <div class="data-empty">
+        <div class="empty-img"><i class="iconfont icon-kafei"></i></div>
+        <div class="empty-msg">还没有订单，快去接单</div>
+    </div>
+    <!--数据列表-->
+    <div class="content-body" id="content-body">
+        <ul></ul>
+        <div class="load-more">加载更多</div>
+    </div>
+
+</div>
+<div id="rectangle" class="rectangle">
+    <div class="tip">所有已结项项目会计入钱包，如有对金额有疑问可联系客服</div>
+    <div class="btn" onclick="newAlert()">联系客服</div>
+</div>
+
+<div class="shadow" onclick="removeAlert()" style="display: none;">
+    <div class="newAlert">
+        <a href="tel:010-89898899">点击拨打: 010-89898989</a>
+    </div>
+</div>
+<script type="text/javascript" src="./scripts/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./scripts/common/jquery.cookie.js"></script>
+<script type="text/javascript" src="./scripts/common/common.js"></script>
+<script type="text/javascript" src="./scripts/myWallet.js"></script>
+</body>
+</html>

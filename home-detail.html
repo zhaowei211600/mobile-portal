@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>项目详情</title>
+    <link rel="stylesheet" href="./styles/common/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./styles/font/iconfont.css">
+    <link rel="stylesheet" href="./styles/common/common.css" />
+    <link rel="stylesheet" href="./styles/home.css" />
+    <link rel="stylesheet" href="./styles/alert.css" />
+
+</head>
+<body>
+    <!--顶部导航搜索-->
+    <div class="top-search">
+        <div class="search-bar">
+            项目详情
+        </div>
+        <a href="./home.html" class="s-back"><i class="iconfont icon-fanhuizuojiantou"></i></a>
+    </div>
+
+    <div class="home-detail-head">
+        <div class="leftright">
+            <div class="ft" id="productName"></div>
+            <div>发布时间：<span id="publishTime"></span></div>
+        </div>
+        <div class="leftright">
+            <div>预算：<span class="red" id="budget"></span></div>
+            <div>工期：<span id="period"></span>个月</div>
+        </div>
+        <div class="leftright">
+            <div>联系方式：<span>接单成功后可见</span></div>
+            <div>期望交付时间：<span id="expectDeliveryTime"></span></div>
+        </div>
+    </div>
+
+    <div class="detail-detail">
+        <div class="detail-detail-head">项目描述</div>
+        <div class="col99" id="desc">
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <div style="color: #999999;"><div>已有 <span id="totalUser">0</span> 位</div><div>同行完成申请</div></div>
+        <div class="acceptBtnStyle" id="confirmOrder">立即接单</div>
+    </div>
+
+    <div class="customer" onclick="showCustomerBox()">
+        <img style="width: 30px;" src="./styles/images/user.png"/>联系客服
+    </div>
+
+    <div class="shadow" id="box" style="display: none;">
+        <div class="newAlert">
+            <div class="box-title">项目协议</div>
+            <img class="box-image" onclick="removeAlert()" src="./styles/images/guanbi.png"/>
+            <div class="box-con">写万一阿斯加德法兰克时代峻峰考拉上记得发；时代峰峻阿喀琉斯；的房价啊似的发是的法律进啥的开发商老地方；按揭房阿斯顿发介绍的
+            爱神的箭发牢骚；角度看法历史短发写万一阿斯加德法兰克时代峻峰考拉上记得发；时代峰峻阿喀琉斯；的房价啊似的发是的法律进啥的开发商老地方；按揭房阿斯顿发介绍的
+                爱神的箭发牢骚；角度看法历史短发写万一阿斯加德法兰克时代峻峰考拉上记得发；时代峰峻阿喀琉斯；的房价啊似的发是的法律进啥的开发商老地方；按揭房阿斯顿发介绍的
+                爱神的箭发牢骚；角度看法历史短发写万一阿斯加德法兰克时代峻峰考拉上记得发；时代峰峻阿喀琉斯；的房价啊似的发是的法律进啥的开发商老地方；按揭房阿斯顿发介绍的
+                爱神的箭发牢骚；角度看法历史短发写万一阿斯加德法兰克时代峻峰考拉上记得发；时代峰峻阿喀琉斯；的房价啊似的发是的法律进啥的开发商老地方；按揭房阿斯顿发介绍的
+                爱神的箭发牢骚；角度看法历史短发写万一阿斯加德法兰克时代峻峰考拉上记得发；时代峰峻阿喀琉斯；的房价啊似的发是的法律进啥的开发商老地方；按揭房阿斯顿发介绍的
+                爱神的箭发牢骚；角度看法历史短发写万一阿斯加德法兰克时代峻峰考拉上记得发；时代峰峻阿喀琉斯；的房价啊似的发是的法律进啥的开发商老地方；按揭房阿斯顿发介绍的
+                爱神的箭发牢骚；角度看法历史短发写万一阿斯加德法兰克时代峻峰考拉上记得发；时代峰峻阿喀琉斯；的房价啊似的发是的法律进啥的开发商老地方；按揭房阿斯顿发介绍的
+                爱神的箭发牢骚；角度看法历史短发写万一阿斯加德法兰克时代峻峰考拉上记得发；时代峰峻阿喀琉斯；的房价啊似的发是的法律进啥的开发商老地方；按揭房阿斯顿发介绍的
+                爱神的箭发牢骚；角度看法历史短发</div>
+            <div class="box-btn" onclick="submitMoney()">同意协议并接单</div>
+        </div>
+    </div>
+    <div class="shadow" id="customer" style="display: none;">
+        <div class="customer-alert">
+            <img style="width: 200px;" src="./styles/images/wei.png"/>
+            <div class="box-tip">长按识别添加客服</div>
+            <img style="width: 90px;" src="./styles/images/zhiwen.png"/>
+        </div>
+        <div class="customer-close">
+            <img onclick="removeAlert()" src="./styles/images/guanbi-w.png"/>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="./scripts/lib/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./scripts/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./scripts/common/jquery.cookie.js"></script>
+    <script type="text/javascript" src="./scripts/common/common.js"></script>
+    <script type="text/javascript" src="./scripts/homeDetail.js"></script>
+
+</body>
+</html>

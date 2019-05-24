@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>订单详情页</title>
+    <link rel="stylesheet" href="./styles/common/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./styles/font/iconfont.css">
+    <link rel="stylesheet" href="./styles/common/common.css" />
+    <link rel="stylesheet" href="./styles/home.css" />
+</head>
+<body>
+<!--顶部导航搜索-->
+<div>
+    <div class="search-bar">
+        验收详情
+    </div>
+    <a href="javascript:history.go(-1);" class="s-back"><i class="iconfont icon-fanhuizuojiantou"></i></a>
+</div>
+
+<div class="home-detail-head" style="margin: 5px 0;" >
+    <div class="leftright">
+        <div>申请时间&nbsp;&nbsp;<span id="createTime"></span></div>
+        <div><span id="deliveryStatus"></span></div>
+    </div>
+</div>
+<div class="home-detail-head apply_delivery"  >
+    <div>验收说明</div>
+    <div style="height: 100px;" id="finishDesc"></div>
+</div>
+<div class="home-detail-head apply_delivery"  >
+    <div>附件</div>
+    <div id="fujian"></div>
+</div>
+<div class="home-detail-head apply_delivery"  >
+    <div>验收结果</div>
+</div>
+
+<div class="home-detail-head" style="margin: 5px 0;" >
+    <div class="leftright">
+        <div>验收状态 &nbsp;&nbsp;<span id="status" style="color: #0C4AEC;"></span></div>
+    </div>
+    <div class="apply_delivery" style="margin-top: 0;">
+        <div class="detail-detail-head">验收说明</div>
+        <div >
+            <textarea id="auditDesc" disabled style="border: 1px solid #999999;background-color: #fff; width: 100%;height: 150px;"></textarea>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="detail-detail apply_delivery" style="display: none">-->
+    <!--<div class="detail-detail-head">完成情况描述</div>-->
+    <!--<div class="col99" id="">-->
+        <!--<input type="textarea" id="deliveryDesc"/>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="footer order-footer">-->
+    <!--<div class="acceptBtnStyle" id="apply">交付结项申请</div>-->
+<!--</div>-->
+<!--<div class="acceptBtnStyle" id="applyDelivery">确认提交</div>-->
+
+
+
+<script type="text/javascript" src="./scripts/lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./scripts/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="./scripts/common/jquery.cookie.js"></script>
+<script type="text/javascript" src="./scripts/common/common.js"></script>
+<script type="text/javascript" src="./scripts/orderApply.js"></script>
+
+
+</body>
+</html>

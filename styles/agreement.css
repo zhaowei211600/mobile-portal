@@ -1,0 +1,24 @@
+.textC{
+    text-align: center;
+}
+.blod{
+    font-weight: bolder;
+    padding: 10px 0;
+}
+.indent{
+    text-indent: 2em;
+}
+.con{
+    padding: 20px;
+    font-size: 14px;
+    line-height: 30px;
+    background-color: #ffffff;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+.icon-fanhuizuojiantou{
+    margin-right: 0.8rem;
+    color: #80848F;
+}

@@ -57,7 +57,7 @@ $(function () {
                 success:function (data) {
                     if(data.returnCode == 200 ){
                         greenAlertBox('注册成功，请登录');
-                        setTimeout('window.location.href = "../pages/login.html"',1000);
+                        setTimeout('window.location.href = "./login.html"',1000);
                         $('.loadingBlue').remove();
                     }else {
                         var message = data.returnMessage || '注册失败！';
