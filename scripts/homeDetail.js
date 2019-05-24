@@ -63,7 +63,7 @@ $(function () {
                 $("#expectDeliveryTime").html(data.expectDeliveryTime);
                 $("#publishTime").html(data.createTime);
                 $("#desc").html(data.desc);
-                $("#period").html(data.period);
+                $("#period").html(data.periodStart+"至"+data.periodEnd);
                 if(data.status == '1'){
                     status = '待接单';
                 }else if(data.status == '2'){
@@ -72,6 +72,7 @@ $(function () {
                     status = '已结束';
                 }
                 $("#status").html(status);
+                $("#protocol").html(data.detail);
 
             }
         }

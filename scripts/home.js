@@ -98,7 +98,7 @@ var walletList = {
                             item.desc +
                             "                    </div>" +
                             "                    <div style=\"display: flex;flex-direction: row;justify-content: space-between;padding-top: 5px;font-size: 12px;\">\n" +
-                            "                        <div>工期：<span>"+item.period+"</span>个月</div>\n" +
+                            "                        <div>工期：<span>"+item.periodStart+"至"+item.periodEnd+"</span></div>\n" +
                             "                        <div>期望交付时间：<span>"+item.expectDeliveryTime+"</span></div>\n" +
                             "                    </div>\n" +
                             "                </div>\n" +
