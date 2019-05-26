@@ -4,6 +4,7 @@ var walletList = {
         this.loadOK = false;
         this.params = {};
         //this.common();
+        this.initParams();
         this.searchLayer();
         this.query();
         this.loadMore();
@@ -14,6 +15,10 @@ var walletList = {
             urlParams = JSON.parse(decodeURI(window.location.search.substr(1).split("=")[1]));
             this.params = urlParams;
         }
+    },
+    initParams: function(){
+        this.params.pageNum = 1;
+        this.params.pageSize = 10;
     },
     // 弹层
     searchLayer: function(){
@@ -115,7 +120,7 @@ var walletList = {
             if(_this.loadOK && ($(this).scrollTop() + $(this).height()) >= $(".load-more").offset().top){
                 _this.loadOK = false;
 
-                _this.params.page ++;
+                _this.params.pageNum ++;
                 _this.query();
             }
         });

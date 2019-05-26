@@ -3,10 +3,14 @@ var orderList = {
     init: function(){
         this.loadOK = false;
         this.params = {};
-        //this.common();
+        this.initParams();
         this.searchLayer();
         this.query();
         this.loadMore();
+    },
+    initParams: function(){
+        this.params.pageNum = 1;
+        this.params.pageSize = 10;
     },
     common: function(){
         var urlParams = "";
@@ -118,7 +122,7 @@ var orderList = {
             if(_this.loadOK && ($(this).scrollTop() + $(this).height()) >= $(".load-more").offset().top){
                 _this.loadOK = false;
 
-                _this.params.page ++;
+                _this.params.pageNum ++;
                 _this.query();
             }
         });

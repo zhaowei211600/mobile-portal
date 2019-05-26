@@ -18,10 +18,15 @@ var walletList = {
     init: function(){
         this.loadOK = false;
         this.params = {};
-        //this.common();
-        this.searchLayer();
+        this.common();
+        this.initParams();
+        //this.searchLayer();
         this.query();
         this.loadMore();
+    },
+    initParams: function(){
+        this.params.pageNum = 1;
+        this.params.pageSize = 10;
     },
     common: function(){
         var urlParams = "";
@@ -30,44 +35,11 @@ var walletList = {
             this.params = urlParams;
         }
     },
-    // 弹层
-    searchLayer: function(){
-        var _this = this;
-        // 打开
-        $(".top-search .search-bar .s-btn").click(function(){
-            $(".search-body").show();
-            // 禁止页面滚动（解决苹果下 小键盘出现 输入数据时导致的一些问题）
-            $("html").css({"overflow": "hidden", "height": "100%"});
-            $("body").css({"overflow": "hidden", "height": "100%"});
 
-            _this.resetLayer();
-            _this.initParams();
-        });
-        // 关闭
-        $(".top-search .search-body .layer-close").click(function(){
-            $("html").css({"overflow": "visible", "height": "auto"});
-            $("body").css({"overflow": "visible", "height": "auto"});
-            $(".search-body").hide();
-        });
-
-        $(".email-status .layer-btn-es").on("click", "a", function(){
-            $(this).addClass("on").siblings().removeClass("on");
-        });
-        $(".check-status .layer-btn-cs").on("click", "a", function(){
-            $(this).addClass("on").siblings().removeClass("on");
-        });
-
-    },
-    // 重置弹层
-    resetLayer: function(){
-        $(".email-status a").removeClass("on");
-        $(".check-status a").removeClass("on");
-        $(".search-info input").val("");
-    },
     query: function(){
         var _this = this;
         //只显示待接单
-        //_this.params.status = 1;
+        _this.params.pageSize = 10;
         $.ajax({
             url: BASEURL + "/product/list",
             data: JSON.stringify(_this.params),
@@ -125,7 +97,7 @@ var walletList = {
             if(_this.loadOK && ($(this).scrollTop() + $(this).height()) >= $(".load-more").offset().top){
                 _this.loadOK = false;
 
-                _this.params.page ++;
+                _this.params.pageNum ++;
                 _this.query();
             }
         });
